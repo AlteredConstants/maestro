@@ -1,4 +1,7 @@
 import React from 'react';
-import Index from './components/index.jsx!';
+import Router from 'react-router';
+import routes from 'routes.jsx!';
 
-React.render(<Index />, document.getElementById('main'));
+Router.run(routes, function(Handler) {
+	React.render(<Handler/>, document.getElementById('main'));
+});

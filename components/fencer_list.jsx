@@ -1,7 +1,19 @@
 import React from 'react';
+import Reflux from 'reflux';
+import FencerStore from '../stores/fencer_store';
 import FencerActions from '../actions/fencer_actions';
 
-var Index = React.createClass({
+export default React.createClass({
+	mixins: [Reflux.connect(FencerStore, "fencers")],
+
+	getInitialState() {
+		return { fencers: [] };
+	},
+
+	componentDidMount() {
+		this.setState({ fencers: FencerStore.getAll() });
+	},
+
 	addFencer() {
 		const fencerNode = this.refs.new.getDOMNode();
 		const fencer = fencerNode.value;
@@ -16,13 +28,14 @@ var Index = React.createClass({
 
 	render() {
 		return (
-			<ul>
-				{this.props.fencers.map(fencer =>
-					<li>{fencer} <button onClick={this.removeFencer} value={fencer}>Remove</button></li>)}
-				<li><input ref="new" /> <button onClick={this.addFencer}>Add</button></li>
-			</ul>
+			<section>
+				<h1>Fencers</h1>
+				<ul>
+					{this.state.fencers.map(fencer =>
+						<li>{fencer} <button onClick={this.removeFencer} value={fencer}>Remove</button></li>)}
+					<li><input ref="new" /> <button onClick={this.addFencer}>Add</button></li>
+				</ul>
+			</section>
 		);
 	}
 });
-
-export default Index;
