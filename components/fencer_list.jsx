@@ -1,7 +1,7 @@
 import React from 'react';
 import Reflux from 'reflux';
-import FencerStore from '../stores/fencer_store';
-import FencerActions from '../actions/fencer_actions';
+import FencerStore from 'stores/fencer_store';
+import FencerActions from 'actions/fencer_actions';
 
 export default React.createClass({
 	mixins: [Reflux.connect(FencerStore, "fencers")],

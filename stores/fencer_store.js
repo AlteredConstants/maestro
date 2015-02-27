@@ -1,5 +1,5 @@
 import Reflux from 'reflux';
-import FencerActions from '../actions/fencer_actions';
+import FencerActions from 'actions/fencer_actions';
 
 var FencerStore = Reflux.createStore({
 	listenables: FencerActions,
