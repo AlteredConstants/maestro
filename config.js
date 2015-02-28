@@ -11,7 +11,8 @@ System.config({
   },
   "map": {
     "actions": "actions",
-    "stores": "stores"
+    "stores": "stores",
+    "models": "models"
   }
 });
 

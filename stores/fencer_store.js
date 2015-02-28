@@ -1,4 +1,5 @@
 import Reflux from 'reflux';
+import Fencer from 'models/fencer';
 import FencerActions from 'actions/fencer_actions';
 
 var FencerStore = Reflux.createStore({
@@ -8,11 +9,17 @@ var FencerStore = Reflux.createStore({
 		if (localStorage.fencers) {
 			let fencers = JSON.parse(localStorage.fencers);
 			if (!Array.isArray(fencers))
-				fencers = [];
-			return fencers;
+				return [];
+			return fencers.map(f => new Fencer(f));
 		} else {
 			return [];
 		}
+	},
+
+	get(id) {
+		if (!id)
+			return this.getAll();
+		return this.getAll().find(f => f.getId() === id);
 	},
 
 	add(fencer) {
@@ -22,8 +29,8 @@ var FencerStore = Reflux.createStore({
 		this.trigger(fencers);
 	},
 
-	remove(fencer) {
-		let fencers = this.getAll().filter(f => f !== fencer);
+	remove(id) {
+		let fencers = this.getAll().filter(f => f.getId() !== id);
 		localStorage.fencers = JSON.stringify(fencers);
 		this.trigger(fencers);
 	}

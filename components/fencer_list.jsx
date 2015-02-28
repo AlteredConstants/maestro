@@ -1,5 +1,6 @@
 import React from 'react';
 import Reflux from 'reflux';
+import Fencer from 'models/fencer';
 import FencerStore from 'stores/fencer_store';
 import FencerActions from 'actions/fencer_actions';
 
@@ -16,14 +17,14 @@ export default React.createClass({
 
 	addFencer() {
 		const fencerNode = this.refs.new.getDOMNode();
-		const fencer = fencerNode.value;
+		const name = fencerNode.value;
 		fencerNode.value = '';
-		FencerActions.add(fencer);
+		FencerActions.add(new Fencer({ name }));
 	},
 
 	removeFencer(event) {
-		const fencer = event.target.value;
-		FencerActions.remove(fencer);
+		const id = parseInt(event.target.value);
+		FencerActions.remove(id);
 	},
 
 	render() {
@@ -31,8 +32,16 @@ export default React.createClass({
 			<section>
 				<h1>Fencers</h1>
 				<ul>
-					{this.state.fencers.map(fencer =>
-						<li>{fencer} <button onClick={this.removeFencer} value={fencer}>Remove</button></li>)}
+					{
+						this.state.fencers.map(fencer =>
+							<li>
+								<button	onClick={this.removeFencer}	value={fencer.getId()}>
+									Remove
+								</button>
+								{' ' + fencer.getName()}
+							</li>
+						)
+					}
 					<li><input ref="new" /> <button onClick={this.addFencer}>Add</button></li>
 				</ul>
 			</section>
