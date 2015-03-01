@@ -4,8 +4,24 @@ import FencerActions from 'actions/fencer_actions';
 import Immutable from 'immutable';
 import is from 'check-types';
 
+function onAddFencer(fencer) {
+	let fencers = this.getAll().push(fencer);
+	localStorage.fencers = JSON.stringify(fencers);
+	this.trigger(fencers);
+}
+
+function onRemoveFencer(fencer) {
+	let id = Fencer.getId(fencer);
+	let fencers = this.getAll().filter(f => f.getId() !== id);
+	localStorage.fencers = JSON.stringify(fencers);
+	this.trigger(fencers);
+}
+
 export default Reflux.createStore({
-	listenables: FencerActions,
+	init: function() {
+		this.listenTo(FencerActions.add, onAddFencer);
+		this.listenTo(FencerActions.remove, onRemoveFencer);
+	},
 
 	getAll() {
 		if (is.not.assigned(localStorage.fencers))
@@ -20,18 +36,5 @@ export default Reflux.createStore({
 		if (is.not.assigned(id))
 			return this.getAll();
 		return this.getAll().find(f => f.getId() === id);
-	},
-
-	add(fencer) {
-		let fencers = this.getAll().push(fencer);
-		localStorage.fencers = JSON.stringify(fencers);
-		this.trigger(fencers);
-	},
-
-	remove(fencer) {
-		let id = Fencer.getId(fencer);
-		let fencers = this.getAll().filter(f => f.getId() !== id);
-		localStorage.fencers = JSON.stringify(fencers);
-		this.trigger(fencers);
 	}
 });

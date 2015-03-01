@@ -4,11 +4,23 @@ import FencerActions from 'actions/fencer_actions';
 import EventActions from 'actions/event_actions';
 import is from 'check-types';
 
-export default Reflux.createStore({
-	listenables: EventActions,
+function onAddFencer(fencer) {
+	let event = this.get().addFencer(fencer);
+	localStorage.event = JSON.stringify(event);
+	this.trigger(event);
+}
 
+function onRemoveFencer(fencer) {
+	let event = this.get().removeFencer(fencer);
+	localStorage.event = JSON.stringify(event);
+	this.trigger(event);
+}
+
+export default Reflux.createStore({
 	init: function() {
-		this.listenTo(FencerActions.remove, this.removeFencer);
+		this.listenTo(EventActions.addFencer, onAddFencer);
+		this.listenTo(EventActions.removeFencer, onRemoveFencer);
+		this.listenTo(FencerActions.remove, onRemoveFencer);
 	},
 
 	get() {
@@ -18,17 +30,5 @@ export default Reflux.createStore({
 		if (is.not.object(event))
 			return new Event();
 		return new Event(event);
-	},
-
-	addFencer(fencer) {
-		let event = this.get().addFencer(fencer);
-		localStorage.event = JSON.stringify(event);
-		this.trigger(event);
-	},
-
-	removeFencer(fencer) {
-		let event = this.get().removeFencer(fencer);
-		localStorage.event = JSON.stringify(event);
-		this.trigger(event);
 	}
 });
