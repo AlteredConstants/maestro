@@ -5,6 +5,7 @@
       "packages": "jspm_packages"
     },
     "dependencies": {
+      "immutable": "npm:immutable@^3.6.2",
       "jsx": "github:floatdrop/plugin-jsx@^0.1.1",
       "react": "npm:react@^0.12.2",
       "react-router": "npm:react-router@^0.12.0",

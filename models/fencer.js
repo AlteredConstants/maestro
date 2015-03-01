@@ -18,6 +18,17 @@ class Fencer {
 	toJSON() {
 		return internal.get(this);
 	}
+
+
+	static getId(fencer) {
+		if (fencer instanceof Fencer) {
+			return fencer.getId();
+		} else if (Number.isInteger(fencer)) {
+			return fencer;
+		} else {
+			throw Error('Not a valid Fencer or Fencer ID.');
+		}
+	}
 }
 
 export default Fencer;

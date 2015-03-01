@@ -1,19 +1,10 @@
 import React from 'react';
-import Reflux from 'reflux';
+import FencerStateMixin from './mixins/fencer_state';
 import Fencer from 'models/fencer';
-import FencerStore from 'stores/fencer_store';
 import FencerActions from 'actions/fencer_actions';
 
 export default React.createClass({
-	mixins: [Reflux.connect(FencerStore, "fencers")],
-
-	getInitialState() {
-		return { fencers: [] };
-	},
-
-	componentDidMount() {
-		this.setState({ fencers: FencerStore.getAll() });
-	},
+	mixins: [FencerStateMixin],
 
 	addFencer() {
 		const fencerNode = this.refs.new.getDOMNode();
@@ -34,7 +25,7 @@ export default React.createClass({
 				<ul>
 					{
 						this.state.fencers.map(fencer =>
-							<li>
+							<li key={fencer.getId()}>
 								<button	onClick={this.removeFencer}	value={fencer.getId()}>
 									Remove
 								</button>

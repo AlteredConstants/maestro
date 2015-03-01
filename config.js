@@ -1,23 +1,16 @@
 System.config({
   "baseURL": "/",
   "transpiler": "babel",
-  "to5Options": {
-    "sourceMap": "inline"
-  },
   "paths": {
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
-  },
-  "map": {
-    "actions": "actions",
-    "stores": "stores",
-    "models": "models"
   }
 });
 
 System.config({
   "map": {
+    "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.12.2",
     "react-router": "npm:react-router@0.12.0",
