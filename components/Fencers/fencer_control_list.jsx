@@ -22,10 +22,12 @@ export default React.createClass({
 			<ul>
 				{
 					fencers.map(fencer =>
-							<li key={'fencer-' + fencer.getId()}>
-								<FencerControl fencer={fencer} />
-							</li>
+						<li key={'fencer-' + fencer.getId()}>
+							<FencerControl fencer={fencer} />
+						</li>
 					)
+					// TODO: Remove once we can update to React 0.13.
+					.toArray()
 				}
 				<li><input ref="new" /> <button onClick={this.addFencer}>Add</button></li>
 			</ul>

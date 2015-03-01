@@ -19,6 +19,8 @@ export default React.createClass({
 							<FencerSelect event={event} fencer={fencer} />
 						</li>
 					)
+					// TODO: Remove once we can update to React 0.13.
+					.toArray()
 				}
 			</ul>
 		);
