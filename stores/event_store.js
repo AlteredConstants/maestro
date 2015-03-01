@@ -7,14 +7,12 @@ export default Reflux.createStore({
 	listenables: EventActions,
 
 	get() {
-		if (localStorage.event) {
-			let event = JSON.parse(localStorage.event);
-			if (is.not.object(event))
-				return new Event();
-			return new Event(event);
-		} else {
+		if (is.not.assigned(localStorage.event))
 			return new Event();
-		}
+		let event = JSON.parse(localStorage.event);
+		if (is.not.object(event))
+			return new Event();
+		return new Event(event);
 	},
 
 	addFencer(fencer) {

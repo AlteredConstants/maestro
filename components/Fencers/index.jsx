@@ -1,7 +1,9 @@
 import React from 'react';
-import FencerStateMixin from './mixins/fencer_state';
+import FencerStateMixin from '../mixins/fencer_state';
 import Fencer from 'models/fencer';
 import FencerActions from 'actions/fencer_actions';
+import FencerControl from './fencer_control.jsx!';
+import is from 'check-types';
 
 export default React.createClass({
 	mixins: [FencerStateMixin],
@@ -13,26 +15,21 @@ export default React.createClass({
 		FencerActions.add(new Fencer({ name }));
 	},
 
-	removeFencer(event) {
-		const id = parseInt(event.target.value);
-		FencerActions.remove(id);
-	},
-
 	render() {
+		const fencers = this.state.fencers;
+		let renderedFencers;
+		if (is.assigned(fencers)) {
+			renderedFencers = this.state.fencers.map(fencer =>
+				<li key={'fencer-' + fencer.getId()}>
+					<FencerControl fencer={fencer} />
+				</li>
+			);
+		}
 		return (
 			<section>
 				<h1>Fencers</h1>
 				<ul>
-					{
-						this.state.fencers.map(fencer =>
-							<li key={fencer.getId()}>
-								<button	onClick={this.removeFencer}	value={fencer.getId()}>
-									Remove
-								</button>
-								{' ' + fencer.getName()}
-							</li>
-						)
-					}
+					{renderedFencers}
 					<li><input ref="new" /> <button onClick={this.addFencer}>Add</button></li>
 				</ul>
 			</section>

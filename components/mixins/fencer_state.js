@@ -5,7 +5,7 @@ export default {
 	mixins: [Reflux.connect(FencerStore, "fencers")],
 
 	getInitialState() {
-		return { fencers: [] };
+		return { fencers: null };
 	},
 
 	componentDidMount() {

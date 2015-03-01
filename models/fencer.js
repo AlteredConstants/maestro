@@ -1,26 +1,31 @@
+import Immutable from 'immutable';
 import is from 'check-types';
 
 const internal = new WeakMap();
 
+function parse(params) {
+	return Immutable.Map(params).withMutations(function(map) {
+		if (is.not.assigned(map.get('id')))
+			map.set('id', Date.now());
+	});
+}
+
 class Fencer {
 	constructor(params) {
-		if (is.not.assigned(params.id))
-			params.id = Date.now();
-		internal.set(this, params);
+		internal.set(this, parse(params));
 	}
 
 	getId() {
-		return internal.get(this).id;
+		return internal.get(this).get('id');
 	}
 
 	getName() {
-		return internal.get(this).name;
+		return internal.get(this).get('name');
 	}
 
 	toJSON() {
-		return internal.get(this);
+		return internal.get(this).toJSON();
 	}
-
 
 	static getId(fencer) {
 		if (is.instance(fencer, Fencer)) {

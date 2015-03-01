@@ -2,7 +2,7 @@ import React from 'react';
 import Router from 'react-router';
 import Main from 'components/main.jsx!';
 import Index from 'components/index.jsx!';
-import FencerList from 'components/fencer_list.jsx!';
+import FencerList from 'components/Fencers/index.jsx!';
 import Events from 'components/Events/index.jsx!';
 let { Route, DefaultRoute } = Router;
 

@@ -22,7 +22,7 @@ export default React.createClass({
 		let content;
 		if (is.assigned(event)) {
 			content = fencers.map(fencer =>
-				<li key={fencer.getId()}>
+				<li key={'fencer-' + fencer.getId()}>
 					<FencerSelect fencer={fencer} event={event} />
 				</li>
 			);
