@@ -1,10 +1,15 @@
 import Reflux from 'reflux';
 import Event from 'models/event';
+import FencerActions from 'actions/fencer_actions';
 import EventActions from 'actions/event_actions';
 import is from 'check-types';
 
 export default Reflux.createStore({
 	listenables: EventActions,
+
+	init: function() {
+		this.listenTo(FencerActions.remove, this.removeFencer);
+	},
 
 	get() {
 		if (is.not.assigned(localStorage.event))
