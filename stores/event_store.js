@@ -1,6 +1,7 @@
 import Reflux from 'reflux';
 import Event from 'models/event';
 import EventActions from 'actions/event_actions';
+import is from 'check-types';
 
 export default Reflux.createStore({
 	listenables: EventActions,
@@ -8,7 +9,7 @@ export default Reflux.createStore({
 	get() {
 		if (localStorage.event) {
 			let event = JSON.parse(localStorage.event);
-			if (event !== Object(event))
+			if (is.not.object(event))
 				return new Event();
 			return new Event(event);
 		} else {

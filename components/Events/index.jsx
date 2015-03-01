@@ -3,6 +3,7 @@ import Reflux from 'reflux';
 import FencerStateMixin from '../mixins/fencer_state';
 import EventStore from 'stores/event_store';
 import FencerSelect from './fencer_select.jsx!';
+import is from 'check-types';
 
 export default React.createClass({
 	mixins: [FencerStateMixin, Reflux.connect(EventStore, "event")],
@@ -19,7 +20,7 @@ export default React.createClass({
 		const event = this.state.event;
 		const fencers = this.state.fencers;
 		let content;
-		if (event) {
+		if (is.assigned(event)) {
 			content = fencers.map(fencer =>
 				<li key={fencer.getId()}>
 					<FencerSelect fencer={fencer} event={event} />

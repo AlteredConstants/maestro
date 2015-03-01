@@ -1,11 +1,12 @@
 import Immutable from 'immutable';
 import Fencer from 'models/fencer';
+import is from 'check-types';
 
 const internal = new WeakMap();
 
 function parse(params) {
 	return Immutable.Map(params).withMutations(function(map) {
-		if (!map.get('id'))
+		if (is.not.assigned(map.get('id')))
 			map.set('id', Date.now());
 		map.set('fencerIds', Immutable.List(map.get('fencerIds')));
 	});

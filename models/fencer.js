@@ -1,8 +1,10 @@
+import is from 'check-types';
+
 const internal = new WeakMap();
 
 class Fencer {
 	constructor(params) {
-		if (!params.id)
+		if (is.not.assigned(params.id))
 			params.id = Date.now();
 		internal.set(this, params);
 	}
@@ -21,9 +23,9 @@ class Fencer {
 
 
 	static getId(fencer) {
-		if (fencer instanceof Fencer) {
+		if (is.instance(fencer, Fencer)) {
 			return fencer.getId();
-		} else if (Number.isInteger(fencer)) {
+		} else if (is.integer(fencer)) {
 			return fencer;
 		} else {
 			throw Error('Not a valid Fencer or Fencer ID.');
