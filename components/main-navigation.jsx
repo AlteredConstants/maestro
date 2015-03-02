@@ -9,6 +9,7 @@ export default React.createClass({
 				<ul>
 					<li><Link to="fencers">Fencers</Link></li>
 					<li><Link to="events">Events</Link></li>
+					<li><Link to="events-bracket">Bracket</Link></li>
 				</ul>
 			</section>
 		);
