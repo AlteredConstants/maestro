@@ -9,6 +9,8 @@ function parse(params) {
 		if (is.not.assigned(map.get('id')))
 			map.set('id', Date.now());
 		map.set('fencerIds', Immutable.List(map.get('fencerIds')));
+		if (is.not.assigned(map.get('isRunning')))
+			map.set('isRunning', false);
 	});
 }
 
@@ -25,6 +27,10 @@ class Event {
 		return internal.get(this).get('fencerIds');
 	}
 
+	isRunning() {
+		return internal.get(this).get('isRunning');
+	}
+
 	addFencer(fencer) {
 		let fencerId = Fencer.getId(fencer);
 		let newState = internal.get(this).updateIn(['fencerIds'],
@@ -37,6 +43,14 @@ class Event {
 		let newState = internal.get(this).updateIn(['fencerIds'],
 				list => list.filter(i => i !== fencerId));
 		return new Event(newState);
+	}
+
+	start() {
+		return new Event(internal.get(this).set('isRunning', true));
+	}
+
+	stop() {
+		return new Event(internal.get(this).set('isRunning', false));
 	}
 
 	toJSON() {

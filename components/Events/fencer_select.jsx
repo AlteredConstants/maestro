@@ -16,6 +16,7 @@ export default React.createClass({
 			<label>
 				<input type="checkbox"
 					checked={event.getFencerIds().contains(fencer.getId())}
+					disabled={event.isRunning()}
 					onChange={this.toggleFencerInEvent.bind(this, fencer)} />
 				{fencer.getName()}
 			</label>

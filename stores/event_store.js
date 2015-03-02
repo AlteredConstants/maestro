@@ -16,10 +16,24 @@ function onRemoveFencer(fencer) {
 	this.trigger(event);
 }
 
+function onStart() {
+	let event = this.get().start();
+	localStorage.event = JSON.stringify(event);
+	this.trigger(event);
+}
+
+function onStop() {
+	let event = this.get().stop();
+	localStorage.event = JSON.stringify(event);
+	this.trigger(event);
+}
+
 export default Reflux.createStore({
 	init: function() {
 		this.listenTo(EventActions.addFencer, onAddFencer);
 		this.listenTo(EventActions.removeFencer, onRemoveFencer);
+		this.listenTo(EventActions.start, onStart);
+		this.listenTo(EventActions.stop, onStop);
 		this.listenTo(FencerActions.remove, onRemoveFencer);
 	},
 
