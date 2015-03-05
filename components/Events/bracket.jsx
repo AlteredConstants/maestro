@@ -1,18 +1,8 @@
 import React from 'react';
 import Fencer from 'models/fencer';
+import Round from 'models/round';
 import Immutable from 'immutable';
 import is from 'check-types';
-
-function getBracketSize(fencerCount) {
-	return Math.pow(2, Math.ceil(Math.log(fencerCount) / Math.log(2)));
-}
-
-function getPairs(competitors) {
-	let midpoint = competitors.size/2;
-	let topHalf = competitors.take(midpoint);
-	let bottomHalf = competitors.toSeq().reverse().take(midpoint).toList();
-	return topHalf.zip(bottomHalf);
-}
 
 export default React.createClass({
 	render() {
@@ -25,21 +15,22 @@ export default React.createClass({
 		const eventFencerIds = event.getFencerIds();
 		let eventFencers = fencers.filter(f => eventFencerIds.contains(f.getId()));
 
-		if (eventFencers.size < 2)
+		if (eventFencerIds.size < 2)
 			return <p>Not enough fencers in the event. <Link to="events-fencers">Select more.</Link></p>;
+		if (eventFencers.size !== eventFencerIds.size)
+			throw new Error("The event has fencer ID's for which there are no records.");
 
-		let bracketSize = getBracketSize(eventFencers.size);
-		const byeFencer = new Fencer({name: "Sunny"});
-		let byes = Immutable.Repeat(byeFencer, bracketSize - eventFencers.size);
-		let competitors = eventFencers.concat(byes);
-		let pairs = getPairs(competitors);
+		let matches = new Round({
+			competitors: eventFencers,
+			defaultItem: new Fencer({name: "Sunny"})
+		}).getMatches();
 
 		return (
 			<section>
 				<h1>First Round</h1>
 				<ul>
 					{
-						pairs.map(p => <li>{p[0].getName()} vs. {p[1].getName()}</li>)
+						matches.map(m => <li>{m.get(0).getName()} vs. {m.get(1).getName()}</li>)
 							// TODO: Remove once we can update to React 0.13.
 							.toArray()
 					}
