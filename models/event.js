@@ -14,7 +14,7 @@ function parse(params) {
 	});
 }
 
-class Event {
+export default class Event {
 	constructor(params) {
 		internal.set(this, parse(params));
 	}
@@ -57,5 +57,3 @@ class Event {
 		return internal.get(this).toJSON();
 	}
 }
-
-export default Event;

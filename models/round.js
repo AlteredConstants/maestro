@@ -1,4 +1,5 @@
 import Immutable from 'immutable';
+import Bout from 'models/bout';
 
 const internal = new WeakMap();
 
@@ -16,21 +17,19 @@ function getFullRound(roundItems, defaultItem) {
 	return roundItems;
 }
 
-function getMatches(competitors, defaultItem) {
-	let roundItems = getFullRound(competitors, defaultItem);
+function getBouts(roundItems) {
 	let midpoint = roundItems.size/2;
 	let topHalf = roundItems.take(midpoint);
 	let bottomHalf = roundItems.toSeq().reverse().take(midpoint).toList();
 	return topHalf.zipWith(
-		(first, second) => Immutable.List.of(first, second),
-		bottomHalf);
+		(rightFencer, leftFencer) => new Bout({rightFencer, leftFencer}),
+		bottomHalf
+	);
 }
 
 function parse(params) {
 	return Immutable.Map(params).withMutations(function(map) {
-		const defaultItem = map.get('defaultItem');
-		const competitors = Immutable.List(map.get('competitors'));
-		map.set('matches', getMatches(competitors, defaultItem));
+		map.set('bouts', Immutable.List(map.get('bouts')));
 	});
 }
 
@@ -39,7 +38,13 @@ export default class Round {
 		internal.set(this, parse(params));
 	}
 
-	getMatches() {
-		return internal.get(this).get('matches');
+	getBouts() {
+		return internal.get(this).get('bouts');
 	}
+}
+
+export function createRound(competitors, defaultItem) {
+	let roundItems = getFullRound(Immutable.List(competitors), defaultItem);
+	let bouts = getBouts(roundItems);
+	return new Round({bouts});
 }

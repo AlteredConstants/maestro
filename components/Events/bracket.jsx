@@ -1,6 +1,6 @@
 import React from 'react';
 import Fencer from 'models/fencer';
-import Round from 'models/round';
+import {createRound} from 'models/round';
 import Immutable from 'immutable';
 import is from 'check-types';
 
@@ -20,19 +20,22 @@ export default React.createClass({
 		if (eventFencers.size !== eventFencerIds.size)
 			throw new Error("The event has fencer ID's for which there are no records.");
 
-		let matches = new Round({
-			competitors: eventFencers,
-			defaultItem: new Fencer({name: "Sunny"})
-		}).getMatches();
+		let bouts = createRound(eventFencers, new Fencer({name: "Sunny"})).getBouts();
 
 		return (
 			<section>
 				<h1>First Round</h1>
 				<ul>
 					{
-						matches.map(m => <li>{m.get(0).getName()} vs. {m.get(1).getName()}</li>)
-							// TODO: Remove once we can update to React 0.13.
-							.toArray()
+						bouts.map(b =>
+							<li key={'bout' + b.getId()}>
+								{b.getRightFencer().getName()}
+								{' vs. '}
+								{b.getLeftFencer().getName()}
+							</li>
+						)
+						// TODO: Remove once we can update to React 0.13.
+						.toArray()
 					}
 				</ul>
 			</section>
