@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
-import is from 'check-types';
+import Model from 'models/model';
 
 const internal = new WeakMap();
 
@@ -8,18 +8,19 @@ function getScoreSheet(fencer) {
 }
 
 let tempId = 0;
-function parse(params) {
-	return Immutable.Map(params).withMutations(function(map) {
-		if (is.not.assigned(map.get('id')))
-			map.set('id', tempId++);
-		map.set('right', getScoreSheet(params.rightFencer));
-		map.set('left', getScoreSheet(params.leftFencer));
-	});
-}
+const defaults = {
+	id: () => tempId++,
+	isCompleted: false
+};
 
-export default class Bout {
+const translations = {
+	right: rightFencer => getScoreSheet(rightFencer),
+	left: leftFencer => getScoreSheet(leftFencer)
+};
+
+export default class Bout extends Model {
 	constructor(params) {
-		internal.set(this, parse(params));
+		super(params, internal, {defaults, translations});
 	}
 
 	getId() {
@@ -40,5 +41,13 @@ export default class Bout {
 
 	getLeftScore() {
 		return internal.get(this).get('left').get('score');
+	}
+
+	isCompleted() {
+		return internal.get(this).get('isCompleted');
+	}
+
+	complete() {
+
 	}
 }

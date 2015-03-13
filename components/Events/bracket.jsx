@@ -28,7 +28,7 @@ export default React.createClass({
 				<ul>
 					{
 						bouts.map(b =>
-							<li key={'bout' + b.getId()}>
+							<li key={'bout-' + b.getId()}>
 								{b.getRightFencer().getName()}
 								{' vs. '}
 								{b.getLeftFencer().getName()}

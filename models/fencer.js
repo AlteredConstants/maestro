@@ -1,18 +1,15 @@
-import Immutable from 'immutable';
 import is from 'check-types';
+import Model from 'models/model';
 
 const internal = new WeakMap();
 
-function parse(params) {
-	return Immutable.Map(params).withMutations(function(map) {
-		if (is.not.assigned(map.get('id')))
-			map.set('id', Date.now());
-	});
-}
+const defaults = {
+	id: () => Date.now()
+};
 
-class Fencer {
+export default class Fencer extends Model {
 	constructor(params) {
-		internal.set(this, parse(params));
+		super(params, internal, {defaults});
 	}
 
 	getId() {
@@ -37,5 +34,3 @@ class Fencer {
 		}
 	}
 }
-
-export default Fencer;

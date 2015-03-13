@@ -1,22 +1,21 @@
 import Immutable from 'immutable';
+import Model from 'models/model';
 import Fencer from 'models/fencer';
-import is from 'check-types';
 
 const internal = new WeakMap();
 
-function parse(params) {
-	return Immutable.Map(params).withMutations(function(map) {
-		if (is.not.assigned(map.get('id')))
-			map.set('id', Date.now());
-		map.set('fencerIds', Immutable.List(map.get('fencerIds')));
-		if (is.not.assigned(map.get('isRunning')))
-			map.set('isRunning', false);
-	});
-}
+const defaults = {
+	id: () => Date.now(),
+	isRunning: false
+};
 
-export default class Event {
+const translations = {
+	fencerIds: fencerIds => Immutable.List(fencerIds)
+};
+
+export default class Event extends Model {
 	constructor(params) {
-		internal.set(this, parse(params));
+		super(params, internal, {defaults, translations});
 	}
 
 	getId() {
@@ -33,15 +32,15 @@ export default class Event {
 
 	addFencer(fencer) {
 		let fencerId = Fencer.getId(fencer);
-		let newState = internal.get(this).updateIn(['fencerIds'],
-				list => list.push(fencerId));
+		let newState = internal.get(this)
+			.updateIn(['fencerIds'], list => list.push(fencerId));
 		return new Event(newState);
 	}
 
 	removeFencer(fencer) {
 		let fencerId = Fencer.getId(fencer);
-		let newState = internal.get(this).updateIn(['fencerIds'],
-				list => list.filter(i => i !== fencerId));
+		let newState = internal.get(this)
+			.updateIn(['fencerIds'], list => list.filter(i => i !== fencerId));
 		return new Event(newState);
 	}
 

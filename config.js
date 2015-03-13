@@ -11,6 +11,7 @@ System.config({
 System.config({
   "map": {
     "check-types": "npm:check-types@2.2.0",
+    "get-parameter-names": "npm:get-parameter-names@0.2.0",
     "immutable": "npm:immutable@3.6.2",
     "jsx": "github:floatdrop/plugin-jsx@0.1.1",
     "react": "npm:react@0.12.2",
@@ -440,3 +441,4 @@ System.config({
     }
   }
 });
+
