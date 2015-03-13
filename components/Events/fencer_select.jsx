@@ -15,10 +15,10 @@ export default React.createClass({
 		return (
 			<label>
 				<input type="checkbox"
-					checked={event.getFencerIds().contains(fencer.getId())}
-					disabled={event.isRunning()}
+					checked={event.fencerIds.contains(fencer.id)}
+					disabled={event.isRunning}
 					onChange={this.toggleFencerInEvent.bind(this, fencer)} />
-				{fencer.getName()}
+				{fencer.name}
 			</label>
 		);
 	}

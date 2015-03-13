@@ -18,15 +18,15 @@ export default class Event extends Model {
 		super(params, internal, {defaults, translations});
 	}
 
-	getId() {
+	get id() {
 		return internal.get(this).get('id');
 	}
 
-	getFencerIds() {
+	get fencerIds() {
 		return internal.get(this).get('fencerIds');
 	}
 
-	isRunning() {
+	get isRunning() {
 		return internal.get(this).get('isRunning');
 	}
 

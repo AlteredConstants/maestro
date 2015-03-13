@@ -12,15 +12,15 @@ export default React.createClass({
 		if (is.not.assigned(event) || is.not.assigned(fencers))
 			return null;
 
-		const eventFencerIds = event.getFencerIds();
-		let eventFencers = fencers.filter(f => eventFencerIds.contains(f.getId()));
+		const eventFencerIds = event.fencerIds;
+		let eventFencers = fencers.filter(f => eventFencerIds.contains(f.id));
 
 		if (eventFencerIds.size < 2)
 			return <p>Not enough fencers in the event. <Link to="events-fencers">Select more.</Link></p>;
 		if (eventFencers.size !== eventFencerIds.size)
 			throw new Error("The event has fencer ID's for which there are no records.");
 
-		let bouts = createRound(eventFencers, new Fencer({name: "Sunny"})).getBouts();
+		let bouts = createRound(eventFencers, new Fencer({name: "Sunny"})).bouts;
 
 		return (
 			<section>
@@ -28,10 +28,10 @@ export default React.createClass({
 				<ul>
 					{
 						bouts.map(b =>
-							<li key={'bout-' + b.getId()}>
-								{b.getRightFencer().getName()}
+							<li key={'bout-' + b.id}>
+								{b.rightFencer.name}
 								{' vs. '}
-								{b.getLeftFencer().getName()}
+								{b.leftFencer.name}
 							</li>
 						)
 						// TODO: Remove once we can update to React 0.13.

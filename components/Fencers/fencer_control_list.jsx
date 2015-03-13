@@ -22,7 +22,7 @@ export default React.createClass({
 			<ul>
 				{
 					fencers.map(fencer =>
-						<li key={'fencer-' + fencer.getId()}>
+						<li key={'fencer-' + fencer.id}>
 							<FencerControl fencer={fencer} />
 						</li>
 					)

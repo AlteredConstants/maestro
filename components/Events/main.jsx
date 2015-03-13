@@ -19,7 +19,7 @@ export default React.createClass({
 	},
 
 	toggleEventStatus() {
-		if (this.state.event.isRunning())
+		if (this.state.event.isRunning)
 			EventActions.stop();
 		else
 			EventActions.start();
@@ -30,7 +30,7 @@ export default React.createClass({
 		const fencers = this.state.fencers;
 		let buttonText = 'Loading...';
 		if (is.assigned(event))
-			buttonText = event.isRunning() ? 'Stop' : 'Start';
+			buttonText = event.isRunning ? 'Stop' : 'Start';
 		return (
 			<section>
 				<h1>

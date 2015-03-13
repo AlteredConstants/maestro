@@ -12,11 +12,11 @@ export default class Fencer extends Model {
 		super(params, internal, {defaults});
 	}
 
-	getId() {
+	get id() {
 		return internal.get(this).get('id');
 	}
 
-	getName() {
+	get name() {
 		return internal.get(this).get('name');
 	}
 
@@ -26,7 +26,7 @@ export default class Fencer extends Model {
 
 	static getId(fencer) {
 		if (is.instance(fencer, Fencer)) {
-			return fencer.getId();
+			return fencer.id;
 		} else if (is.integer(fencer)) {
 			return fencer;
 		} else {

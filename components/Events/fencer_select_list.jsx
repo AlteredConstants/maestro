@@ -15,7 +15,7 @@ export default React.createClass({
 			<ul>
 				{
 					fencers.map(fencer =>
-						<li key={'fencer-' + fencer.getId()}>
+						<li key={'fencer-' + fencer.id}>
 							<FencerSelect event={event} fencer={fencer} />
 						</li>
 					)

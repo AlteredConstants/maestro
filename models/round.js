@@ -37,7 +37,7 @@ export default class Round extends Model {
 		super(params, internal, {translations});
 	}
 
-	getBouts() {
+	get bouts() {
 		return internal.get(this).get('bouts');
 	}
 }

@@ -12,7 +12,7 @@ function onAddFencer(fencer) {
 
 function onRemoveFencer(fencer) {
 	let id = Fencer.getId(fencer);
-	let fencers = this.getAll().filter(f => f.getId() !== id);
+	let fencers = this.getAll().filter(f => f.id !== id);
 	localStorage.fencers = JSON.stringify(fencers);
 	this.trigger(fencers);
 }
@@ -35,6 +35,6 @@ export default Reflux.createStore({
 	get(id) {
 		if (is.not.assigned(id))
 			return this.getAll();
-		return this.getAll().find(f => f.getId() === id);
+		return this.getAll().find(f => f.id === id);
 	}
 });

@@ -23,27 +23,27 @@ export default class Bout extends Model {
 		super(params, internal, {defaults, translations});
 	}
 
-	getId() {
+	get id() {
 		return internal.get(this).get('id');
 	}
 
-	getRightFencer() {
+	get rightFencer() {
 		return internal.get(this).get('right').get('fencer');
 	}
 
-	getLeftFencer() {
+	get leftFencer() {
 		return internal.get(this).get('left').get('fencer');
 	}
 
-	getRightScore() {
+	get rightScore() {
 		return internal.get(this).get('right').get('score');
 	}
 
-	getLeftScore() {
+	get leftScore() {
 		return internal.get(this).get('left').get('score');
 	}
 
-	isCompleted() {
+	get isCompleted() {
 		return internal.get(this).get('isCompleted');
 	}
 

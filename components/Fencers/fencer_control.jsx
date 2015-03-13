@@ -10,10 +10,10 @@ export default React.createClass({
 		const fencer = this.props.fencer;
 		return (
 			<span>
-				<button	onClick={this.removeFencer.bind(this, fencer.getId())}>
+				<button	onClick={this.removeFencer.bind(this, fencer.id)}>
 					Remove
 				</button>
-				{' ' + fencer.getName()}
+				{' ' + fencer.name}
 			</span>
 		);
 	}
