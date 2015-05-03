@@ -1,6 +1,7 @@
 import Immutable from 'immutable';
 import Model from 'models/model';
 import Bout from 'models/bout';
+import BoutStore from 'stores/bout_store';
 
 const internal = new WeakMap();
 
@@ -28,21 +29,33 @@ function getBouts(roundItems) {
 	);
 }
 
+const defaults = {
+	id: () => Date.now().toString(),
+	bouts: Immutable.Map()
+};
+
+const denormalizers = {
+	bouts: {
+		model: Bout,
+		run: BoutStore.get
+	}
+};
+
 const translations = {
-	bouts: bouts => Immutable.List(bouts)
+	bouts: bouts => Immutable.Map(bouts)
 };
 
 export default class Round extends Model {
 	constructor(params) {
-		super(params, internal, {translations});
+		super(params, internal, {defaults, denormalizers, translations});
 	}
 
 	get bouts() {
 		return internal.get(this).get('bouts');
 	}
-}
 
-export function createRound(competitors, defaultItem) {
-	let roundItems = getFullRound(Immutable.List(competitors), defaultItem);
-	return new Round({bouts: getBouts(roundItems)});
+	static create(seededCompetitors, defaultItem) {
+		let roundItems = getFullRound(Immutable.List(seededCompetitors), defaultItem);
+		return new Round({bouts: getBouts(roundItems)});
+	}
 }

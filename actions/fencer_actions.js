@@ -1,8 +1,6 @@
 import Reflux from 'reflux';
 
-FencerActions = Reflux.createActions([
+export default Reflux.createActions([
 	'add',
 	'remove'
 ]);
-
-export default FencerActions;

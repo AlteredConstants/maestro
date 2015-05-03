@@ -1,39 +1,35 @@
 import Immutable from 'immutable';
 import is from 'check-types';
-import getParameterNames from 'get-parameter-names';
+import FieldBuilder from 'models/field_builder';
 
-class FieldBuilder {
-	constructor(params) {
-		this.params = is.assigned(params) ? params : {};
-	}
+let baseInternal = new WeakMap();
+let normalizedFieldsByModel = new WeakMap();
 
-	setDefaults(defaults) {
-		if (is.not.assigned(defaults))
-			return this;
-
-		for (let key of Object.keys(defaults)) {
-			let getDefault = defaults[key];
-			if (is.not.assigned(this.params[key]))
-				this.params[key] = is.function(getDefault) ? getDefault() : getDefault;
+function isHomogeneousByModel(iterable) {
+	let type;
+	return iterable.every(function(item) {
+		if (is.not.assigned(type)) {
+			if (is.not.instance(item, Model)) {
+				return false;
+			}
+			type = item.constructor;
+			return true;
 		}
-		return this;
-	}
+		return is.instance(item, type);
+	});
+}
 
-	translate(translations) {
-		if (is.not.assigned(translations))
-			return this;
-
-		for (let key of Object.keys(translations)) {
-			let getTranslation = translations[key];
-			let baseParams = getParameterNames(getTranslation).map(n => this.params[n]);
-			if (baseParams.every(param => is.not.undefined(param)))
-				this.params[key] = getTranslation(...baseParams);
+function normalize(field) {
+	if (is.instance(field, Model)) {
+		return field.id;
+	} else if (is.instance(field, Immutable.Iterable)) {
+		let normalized = field.map(normalize);
+		if (isHomogeneousByModel(field)) {
+			normalized = normalized.toList();
 		}
-		return this;
-	}
-
-	toImmutable() {
-		return Immutable.Map(this.params);
+		return normalized;
+	} else {
+		return field;
 	}
 }
 
@@ -42,7 +38,27 @@ export default class Model {
 		internal.set(this,
 			new FieldBuilder(params)
 				.setDefaults(operations.defaults)
+				.denormalize(operations.denormalizers)
 				.translate(operations.translations)
-				.toImmutable());
+				.toImmutable()
+		);
+		baseInternal.set(this.constructor, internal);
+		if (!normalizedFieldsByModel.has(this.constructor) &&
+			is.assigned(operations.denormalizers)) {
+			let normalizedFields = Object.keys(operations.denormalizers);
+			normalizedFieldsByModel.set(this.constructor, normalizedFields);
+		}
+	}
+
+	get id() {
+		return baseInternal.get(this.constructor).get(this).get('id');
+	}
+
+	serialize() {
+		return baseInternal.get(this.constructor).get(this).map(normalize);
+	}
+
+	toJSON() {
+		return this.serialize().toJSON();
 	}
 }

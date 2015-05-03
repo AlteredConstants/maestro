@@ -1,19 +1,30 @@
 import Reflux from 'reflux';
-import Fencer from 'models/fencer';
+import Fencer, {ByeFencer} from 'models/fencer';
 import FencerActions from 'actions/fencer_actions';
 import Immutable from 'immutable';
+import LocalStorage from 'interfaces/local_storage';
 import is from 'check-types';
 
+function getAllLocal() {
+	return LocalStorage.getMany(Fencer);
+}
+
+function setAllLocal(fencers) {
+	LocalStorage.setMany(Fencer, fencers);
+	return fencers;
+}
+
+function updateLocal(update) {
+	return setAllLocal(update(getAllLocal()));
+}
+
 function onAddFencer(fencer) {
-	let fencers = this.getAll().push(fencer);
-	localStorage.fencers = JSON.stringify(fencers);
+	let fencers = updateLocal(fencers => fencers.set(fencer.id, fencer));
 	this.trigger(fencers);
 }
 
 function onRemoveFencer(fencer) {
-	let id = Fencer.getId(fencer);
-	let fencers = this.getAll().filter(f => f.id !== id);
-	localStorage.fencers = JSON.stringify(fencers);
+	let fencers = updateLocal(fencers => fencers.delete(fencer.id));
 	this.trigger(fencers);
 }
 
@@ -24,17 +35,13 @@ export default Reflux.createStore({
 	},
 
 	getAll() {
-		if (is.not.assigned(localStorage.fencers))
-			return Immutable.List();
-		let fencers = JSON.parse(localStorage.fencers);
-		if (is.not.array(fencers))
-			return Immutable.List();
-		return Immutable.List(fencers.map(f => new Fencer(f)));
+		return getAllLocal();
 	},
 
 	get(id) {
-		if (is.not.assigned(id))
-			return this.getAll();
-		return this.getAll().find(f => f.id === id);
+		if (id === ByeFencer.id) {
+			return ByeFencer;
+		}
+		return getAllLocal().get(id);
 	}
 });

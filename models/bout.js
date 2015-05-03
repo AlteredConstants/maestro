@@ -1,5 +1,7 @@
 import Immutable from 'immutable';
 import Model from 'models/model';
+import Fencer from 'models/fencer';
+import FencerStore from 'stores/fencer_store';
 
 const internal = new WeakMap();
 
@@ -9,8 +11,27 @@ function getScoreSheet(fencer) {
 
 let tempId = 0;
 const defaults = {
-	id: () => tempId++,
+	id: () => Date.now() + '-' + tempId++,
 	isCompleted: false
+};
+
+const denormalizers = {
+	'right.fencer': {
+		model: Fencer,
+		run: FencerStore.get
+	},
+	'left.fencer': {
+		model: Fencer,
+		run: FencerStore.get
+	},
+	right: {
+		model: Immutable.Map,
+		run: Immutable.Map
+	},
+	left: {
+		model: Immutable.Map,
+		run: Immutable.Map
+	}
 };
 
 const translations = {
@@ -20,11 +41,7 @@ const translations = {
 
 export default class Bout extends Model {
 	constructor(params) {
-		super(params, internal, {defaults, translations});
-	}
-
-	get id() {
-		return internal.get(this).get('id');
+		super(params, internal, {defaults, denormalizers, translations});
 	}
 
 	get rightFencer() {
@@ -48,6 +65,13 @@ export default class Bout extends Model {
 	}
 
 	complete() {
+		return new Bout(internal.get(this).set('isCompleted', true));
+	}
 
+	serialize() {
+		return super.serialize().withMutations(fields => {
+			fields.delete('rightFencer');
+			fields.delete('leftFencer');
+		});
 	}
 }

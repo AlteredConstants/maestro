@@ -1,46 +1,59 @@
 import Immutable from 'immutable';
 import Model from 'models/model';
 import Fencer from 'models/fencer';
+import Round from 'models/round';
+import FencerStore from 'stores/fencer_store';
+import RoundStore from 'stores/round_store';
 
 const internal = new WeakMap();
 
 const defaults = {
-	id: () => Date.now(),
+	id: () => Date.now().toString(),
+	fencers: Immutable.Map(),
 	isRunning: false
 };
 
+const denormalizers = {
+	fencers: {
+		model: Fencer,
+		run: FencerStore.get
+	},
+	currentRound: {
+		model: Round,
+		run: RoundStore.get
+	}
+};
+
 const translations = {
-	fencerIds: fencerIds => Immutable.List(fencerIds)
+	fencers: fencers => Immutable.Map(fencers)
 };
 
 export default class Event extends Model {
 	constructor(params) {
-		super(params, internal, {defaults, translations});
+		super(params, internal, {defaults, denormalizers, translations});
 	}
 
-	get id() {
-		return internal.get(this).get('id');
-	}
-
-	get fencerIds() {
-		return internal.get(this).get('fencerIds');
+	get fencers() {
+		return internal.get(this).get('fencers');
 	}
 
 	get isRunning() {
 		return internal.get(this).get('isRunning');
 	}
 
+	get currentRound() {
+		return internal.get(this).get('currentRound');
+	}
+
 	addFencer(fencer) {
-		let fencerId = Fencer.getId(fencer);
 		let newState = internal.get(this)
-			.updateIn(['fencerIds'], list => list.push(fencerId));
+			.updateIn(['fencers'], list => list.set(fencer.id, fencer));
 		return new Event(newState);
 	}
 
 	removeFencer(fencer) {
-		let fencerId = Fencer.getId(fencer);
 		let newState = internal.get(this)
-			.updateIn(['fencerIds'], list => list.filter(i => i !== fencerId));
+			.updateIn(['fencers'], list => list.delete(fencer.id));
 		return new Event(newState);
 	}
 
@@ -52,7 +65,7 @@ export default class Event extends Model {
 		return new Event(internal.get(this).set('isRunning', false));
 	}
 
-	toJSON() {
-		return internal.get(this).toJSON();
+	setCurrentRound(round) {
+		return new Event(internal.get(this).set('currentRound', round));
 	}
 }
