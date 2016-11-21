@@ -1,0 +1,38 @@
+{
+  "name": "maestro-server",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "koa": "^2.0.0-alpha.7",
+    "source-map-support": "^0.4.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-preset-env": "0.0.8",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "concurrently": "^3.1.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.5.4"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run watch\" \"npm run serve\" --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE\"",
+    "build": "rimraf lib && babel src --out-dir lib --source-maps",
+    "watch": "npm run build -- --watch",
+    "serve": "nodemon --watch lib --debug=5858 lib/entry.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zeff Svoboda",
+  "license": "ISC"
+}

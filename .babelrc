@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "node": "current"
+      }
+    }],
+    "stage-3",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ],
+  "sourceMaps": "inline"
+}
