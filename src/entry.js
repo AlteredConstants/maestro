@@ -1,12 +1,15 @@
 import 'source-map-support/register';
 import Koa from 'koa';
+import routes, { allowedMethods } from './routes/api';
 
 const app = new Koa();
 
-app.use(async (ctx) => {
-  console.log('Hi.');
+
+app
+.use(routes)
+.use(allowedMethods)
+.use(async (ctx) => {
   ctx.body = 'Hello World!';
 });
 
-console.log('Starting server...');
-app.listen(3000);
+app.listen(3000, () => console.log('Server started.'));

@@ -5,8 +5,11 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
+    "es6-promisify": "^5.0.0",
     "koa": "^2.0.0-alpha.7",
-    "source-map-support": "^0.4.6"
+    "koa-router": "^7.0.1",
+    "source-map-support": "^0.4.6",
+    "xml2js": "^0.4.17"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -24,13 +27,15 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
     "nodemon": "^1.11.0",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "wait-on": "^2.0.1"
   },
   "scripts": {
-    "start": "concurrently \"npm run watch\" \"npm run serve\" --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE\"",
+    "start": "concurrently \"npm run watch\" \"npm run serve:delay\" --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE\"",
     "build": "rimraf lib && babel src --out-dir lib --source-maps",
     "watch": "npm run build -- --watch",
     "serve": "nodemon --watch lib --debug=5858 lib/entry.js",
+    "serve:delay": "wait-on lib/entry.js --delay 500 && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Zeff Svoboda",
