@@ -8,7 +8,7 @@ const readFile = promisify(fs.readFile);
 function extractRatings(fencerNode) {
   return fencerNode.Rating.reduce((ratings, ratingNode) => {
     const { _: rating, $: { Weapon } } = ratingNode;
-    if (rating !== 'U') {
+    if (rating && rating !== 'U') {
       return {
         ...ratings,
         [Weapon.toLowerCase()]: rating,
