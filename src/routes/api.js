@@ -1,5 +1,12 @@
 import Router from 'koa-router';
-import data from '../sample-data';
+import getSampleData from '../getSampleData';
+import Fencer from '../model/Fencer';
+import transformQuery, {
+  mapBooleanToExistence,
+  matchPartial,
+  checkAny,
+  makeCaseInsensitive,
+} from './transformQuery';
 
 const router = new Router({ prefix: '/api' });
 
@@ -8,46 +15,42 @@ router.get('/ping', (ctx) => {
 });
 
 router.get('/fred', async (ctx) => {
-  const { raw } = await data;
+  const { raw } = await getSampleData();
   ctx.body = raw;
 });
 
-const fencerFilters = ['firstName', 'lastName', 'gender', 'isUsfaMember'];
-
-function isFilterMatch(filter, query, fencer) {
-  if (filter === 'isUsfaMember') {
-    return !!fencer.usfaId;
-  }
-  const expectedValue = query[filter];
-  const actualValue = fencer[filter];
-  return expectedValue && actualValue && expectedValue.toLowerCase() === actualValue.toLowerCase();
-}
-
 router.get('/fencers', async (ctx) => {
-  const { fencers } = await data;
-  const fencerList = Object.values(fencers);
-  const filters = fencerFilters.filter(f => f in ctx.query);
-  if (filters.length > 0) {
-    ctx.body = fencerList.filter(fencer => (
-      filters.reduce((memo, filter) => memo && isFilterMatch(filter, ctx.query, fencer), true)
-    ));
-  } else {
-    ctx.body = fencerList;
-  }
+  const query = transformQuery(ctx.query, [
+    mapBooleanToExistence('isUsfaMember', 'usfaId'),
+    matchPartial('partialName'),
+    checkAny('partialName', 'firstName', 'lastName'),
+    makeCaseInsensitive('firstName', 'lastName', 'gender'),
+  ]);
+  const fencers = await Fencer.find(query);
+  ctx.body = fencers.map(f => f.toJSON());
 });
 
-router.get('/fencers/:id', async (ctx) => {
-  const { fencers } = await data;
-  const { id } = ctx.params;
-  if (!fencers[id]) {
+router.get('/fencers/:askfredId', async (ctx) => {
+  const { askfredId } = ctx.params;
+  const fencer = await Fencer.findOne({ askfredId });
+  if (!fencer) {
     ctx.status = 404;
   } else {
-    ctx.body = fencers[id];
+    ctx.body = fencer.toJSON();
   }
 });
 
 router.post('/fencers', (ctx) => {
   console.log(ctx.request.body);
+});
+
+router.get('/reload_sample_data', async (ctx) => {
+  const [{ fencers }] = await Promise.all([
+    getSampleData(),
+    Fencer.deleteMany(),
+  ]);
+  await Promise.all(fencers.map(f => Fencer.create(f).save()));
+  ctx.body = 'ok';
 });
 
 export default router.routes();
