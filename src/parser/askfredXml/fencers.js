@@ -1,11 +1,4 @@
-import promisify from 'es6-promisify';
-import { parseString } from 'xml2js';
-import fs from 'fs';
-
-const parseXml = promisify(parseString);
-const readFile = promisify(fs.readFile);
-
-function extractRatings(fencerNode) {
+function parseRatings(fencerNode) {
   return fencerNode.Rating.reduce((ratings, ratingNode) => {
     const { _: rating, $: { Weapon } } = ratingNode;
     if (!rating || rating === 'U') return ratings;
@@ -20,14 +13,14 @@ function extractRatings(fencerNode) {
   }, {});
 }
 
-function extractUsfaId(fencerNode) {
+function parseUsfaId(fencerNode) {
   if (!fencerNode.Membership) return null;
   const membershipNodeList = fencerNode.Membership.filter(m => m.$.Org === 'USFA');
   if (membershipNodeList.length === 0) return null;
   return membershipNodeList[0]._;
 }
 
-function extractFencer(fencerNode) {
+function parseFencer(fencerNode) {
   const {
     FencerID: askfredId,
     FirstName: firstName,
@@ -37,23 +30,14 @@ function extractFencer(fencerNode) {
   } = fencerNode.$;
   const birthYear = Number(birthYearValue);
   const gender = (genderValue === 'F') ? 'W' : genderValue;
-  const rating = extractRatings(fencerNode);
+  const rating = parseRatings(fencerNode);
   const fencer = { askfredId, firstName, lastName, birthYear, gender, rating };
-  const usfaId = extractUsfaId(fencerNode);
+  const usfaId = parseUsfaId(fencerNode);
   if (usfaId) fencer.usfaId = usfaId;
   return fencer;
 }
 
-function extractFencers(fencingDataNode) {
-  const fencerNodeList = fencingDataNode.FencerDatabase[0].Fencer;
-  return fencerNodeList.map(extractFencer);
-}
-
-export default function getSampleData() {
-  return readFile('./data/2012-gopher-open.frd.xml', 'utf8')
-    .then(parseXml)
-    .then(documentRoot => ({
-      fencers: extractFencers(documentRoot.FencingData),
-      raw: documentRoot,
-    }));
+export default function parseFencers(documentRoot) {
+  const fencerNodeList = documentRoot.FencingData.FencerDatabase[0].Fencer;
+  return fencerNodeList.map(parseFencer);
 }

@@ -12,7 +12,11 @@ class Ratings extends EmbeddedDocument {
 }
 
 export default class Fencer extends Document {
-  askfredId = String;
+  askfredId = {
+    type: String,
+    required: true,
+    unique: true,
+  };
   firstName = String;
   lastName = String;
   birthYear = Number;
