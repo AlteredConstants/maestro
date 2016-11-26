@@ -6,6 +6,16 @@ export default class ApiError extends Error {
   }
 }
 
+export async function apiErrorHandler(ctx, next) {
+  try {
+    await next();
+  } catch (error) {
+    if (!(error instanceof ApiError)) throw error;
+    ctx.status = error.statusCode;
+    ctx.body = error;
+  }
+}
+
 export class BadRequest extends ApiError {
   constructor(message) {
     super(400, message);
