@@ -1,10 +1,10 @@
 import fs from 'fs';
 import promisify from 'es6-promisify';
 import Router from 'koa-router';
-import parseAskfredXml from '../parser/askfredXml';
-import Fencer from '../model/Fencer';
-import Tournament from '../model/Tournament';
-import Event from '../model/Event';
+import parseAskfredXml from 'parser/askfredXml';
+import Fencer from 'model/Fencer';
+import Tournament from 'model/Tournament';
+import Event from 'model/Event';
 
 const readFile = promisify(fs.readFile);
 

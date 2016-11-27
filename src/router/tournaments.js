@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import Tournament from '../model/Tournament';
+import Tournament from 'model/Tournament';
 
 const router = new Router();
 

@@ -1,4 +1,4 @@
-import { camelifyKeys, snakifyKeys } from './util/ChangeCase';
+import { camelifyKeys, snakifyKeys } from 'util';
 
 export default async function fixCase(ctx, next) {
   ctx.query = camelifyKeys(ctx.query);

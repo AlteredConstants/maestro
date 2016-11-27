@@ -1,6 +1,6 @@
 import Router from 'koa-router';
-import Fencer from '../model/Fencer';
-import Event from '../model/Event';
+import Fencer from 'model/Fencer';
+import Event from 'model/Event';
 import transformQuery, {
   mapBooleanToExistence,
   matchPartial,

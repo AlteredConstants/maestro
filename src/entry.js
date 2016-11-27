@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import 'source-map-support/register';
 import path from 'path';
 import Koa from 'koa';

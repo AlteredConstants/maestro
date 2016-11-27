@@ -1,12 +1,9 @@
-import promisify from 'es6-promisify';
-import { parseString } from 'xml2js';
+import { parseXmlString } from 'util';
 import parseFencers from './fencers';
 import parseTournaments from './tournaments';
 
-const parseXml = promisify(parseString);
-
 export default async function parseAskfredXml(xmlString) {
-  const rawJson = await parseXml(xmlString, { async: true });
+  const rawJson = await parseXmlString(xmlString);
   const fencers = parseFencers(rawJson);
   const { tournaments, events } = parseTournaments(rawJson);
   return { rawJson, fencers, tournaments, events };
