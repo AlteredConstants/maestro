@@ -9,7 +9,12 @@
     "react"
   ],
   "plugins": [
-    "transform-class-properties"
-  ],
-  "sourceMaps": "inline"
+    "transform-class-properties",
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "test": "./test"
+      }
+    }]
+  ]
 }

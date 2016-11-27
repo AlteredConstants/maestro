@@ -1,7 +1,5 @@
-import { zip } from 'lodash';
-
-function parsePreregistration(preregistrationNode) {
-  return preregistrationNode.$.CompetitorID;
+function parsePreregistrations(eventNode) {
+  return eventNode.PreReg.map(preRegNode => preRegNode.$.CompetitorID);
 }
 
 function parseEvent(askfredTournamentId, eventNode) {
@@ -11,7 +9,7 @@ function parseEvent(askfredTournamentId, eventNode) {
     Weapon: weapon,
     EventDateTime: date,
   } = eventNode.$;
-  const preregisteredFencers = eventNode.PreReg.map(parsePreregistration);
+  const preregisteredFencers = parsePreregistrations(eventNode);
   return {
     askfredId,
     askfredTournamentId,
@@ -22,7 +20,7 @@ function parseEvent(askfredTournamentId, eventNode) {
   };
 }
 
-function parseTournamentNode(tournamentNode) {
+function parseTournament(tournamentNode) {
   const {
     TournamentID: askfredId,
     Name: name,
@@ -34,6 +32,10 @@ function parseTournamentNode(tournamentNode) {
 
 export default function parseTournaments(documentRoot) {
   const tournamentNodeList = documentRoot.FencingData.Tournament;
-  const [tournaments, [events]] = zip(...tournamentNodeList.map(parseTournamentNode));
-  return { tournaments, events };
+  return tournamentNodeList.reduce((result, nextNode) => {
+    const [tournament, events] = parseTournament(nextNode);
+    result.tournaments.push(tournament);
+    result.events = result.events.concat(events);
+    return result;
+  }, { tournaments: [], events: [] });
 }
