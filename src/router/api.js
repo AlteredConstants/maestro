@@ -1,7 +1,7 @@
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
-import fixCase from '../fixCase';
-import { apiErrorHandler } from '../ApiError';
+import fixCase from 'router/fixCase';
+import { apiErrorHandler } from 'ApiError';
 import fencersRouter from './fencers';
 import tournamentsRouter from './tournaments';
 
