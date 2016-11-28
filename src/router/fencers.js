@@ -1,22 +1,25 @@
+import { flow } from 'lodash/fp';
 import Router from 'koa-router';
 import Fencer from 'model/Fencer';
 import Event from 'model/Event';
-import transformQuery, {
+import {
   mapBooleanToExistence,
   matchPartial,
   checkAny,
   makeCaseInsensitive,
-} from './transformQuery';
+} from 'util/QueryTransforms';
 
 const router = new Router();
 
+const rootQueryTranform = flow(
+  mapBooleanToExistence('isUsfaMember', 'usfaId'),
+  matchPartial('partialName'),
+  checkAny('partialName', ['firstName', 'lastName']),
+  makeCaseInsensitive(['firstName', 'lastName', 'gender']),
+);
+
 router.get('/', async (ctx) => {
-  const query = transformQuery(ctx.query, [
-    mapBooleanToExistence('isUsfaMember', 'usfaId'),
-    matchPartial('partialName'),
-    checkAny('partialName', 'firstName', 'lastName'),
-    makeCaseInsensitive('firstName', 'lastName', 'gender'),
-  ]);
+  const query = rootQueryTranform(ctx.query);
   const fencers = await Fencer.find(query);
   ctx.body = fencers.map(f => f.toJSON());
 });
