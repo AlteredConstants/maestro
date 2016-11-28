@@ -1,0 +1,16 @@
+{
+  "env": { "node": true },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    // devDependencies reenabled in src config.
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}
