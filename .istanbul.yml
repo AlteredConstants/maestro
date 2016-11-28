@@ -1,0 +1,5 @@
+instrumentation:
+  root: ./src
+  include-all-sources: true
+reporting:
+    dir: ./.temp/coverage
