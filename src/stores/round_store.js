@@ -7,24 +7,24 @@ import EventActions from 'actions/event_actions';
 import LocalStorage from 'interfaces/local_storage';
 
 function getAllLocal() {
-	return LocalStorage.getMany(Round);
+  return LocalStorage.getMany(Round);
 }
 
 function setAllLocal(rounds) {
-	LocalStorage.setMany(Round, rounds);
+  LocalStorage.setMany(Round, rounds);
 }
 
 function updateLocal(round) {
-	let newRounds = getAllLocal().set(round.id, round);
-	setAllLocal(newRounds);
-	return newRounds;
+  let newRounds = getAllLocal().set(round.id, round);
+  setAllLocal(newRounds);
+  return newRounds;
 }
 
 function onStart(competitors) {
-	let round = Round.create(competitors, ByeFencer);
-	round.bouts.forEach(b => BoutActions.add(b));
-	this.trigger(updateLocal(round));
-	EventActions.nextRoundStarted(round);
+  let round = Round.create(competitors, ByeFencer);
+  round.bouts.forEach(b => BoutActions.add(b));
+  this.trigger(updateLocal(round));
+  EventActions.nextRoundStarted(round);
 }
 
 function onAwardTouch() {
@@ -36,17 +36,17 @@ function onCompleteBout(bout) {
 }
 
 export default Reflux.createStore({
-	init: function() {
-		this.listenTo(RoundActions.start, onStart);
-		this.listenTo(BoutActions.awardTouch, onAwardTouch);
-		this.listenTo(BoutActions.complete, onCompleteBout);
-	},
+  init: function() {
+    this.listenTo(RoundActions.start, onStart);
+    this.listenTo(BoutActions.awardTouch, onAwardTouch);
+    this.listenTo(BoutActions.complete, onCompleteBout);
+  },
 
-	getAll() {
-		return getAllLocal();
-	},
+  getAll() {
+    return getAllLocal();
+  },
 
-	get(id) {
-		return getAllLocal().get(id);
-	}
+  get(id) {
+    return getAllLocal().get(id);
+  }
 });
