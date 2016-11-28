@@ -1,6 +1,5 @@
-import { camel, snake } from 'change-case';
 import is from 'check-types';
-import { curry } from 'lodash/fp';
+import { curry, camelCase, snakeCase } from 'lodash/fp';
 
 const changeCase = curry((transformer, obj) => {
   if (is.array(obj)) {
@@ -14,10 +13,8 @@ const changeCase = curry((transformer, obj) => {
   return obj;
 });
 
-export const camelifyKeys = changeCase(camel);
-export const snakifyKeys = changeCase(snake);
+export const camelify = (...x) => camelCase(...x);
+export const snakify = (...x) => snakeCase(...x);
 
-export default {
-  camelifyKeys,
-  snakifyKeys,
-};
+camelify.objectKeys = changeCase(camelCase);
+snakify.objectKeys = changeCase(snakeCase);

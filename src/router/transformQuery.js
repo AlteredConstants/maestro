@@ -1,4 +1,4 @@
-import escapeStringRegexp from 'escape-string-regexp';
+import { escapeRegExp } from 'lodash/fp';
 import { InvalidBooleanQuery } from '../ApiError';
 
 function convertBooleanToExistence(input) {
@@ -33,7 +33,7 @@ export function matchPartial(propName) {
     if (value !== undefined) {
       newQuery = {
         ...query,
-        [propName]: { $regex: new RegExp(escapeStringRegexp(value), 'i') },
+        [propName]: { $regex: new RegExp(escapeRegExp(value), 'i') },
       };
     }
     return newQuery;
@@ -61,7 +61,7 @@ export function makeCaseInsensitive(...propNames) {
       .filter(([propName]) => propNames.includes(propName));
     if (propEntries.length > 0) {
       propEntries.forEach(([name, value]) => {
-        newQuery[name] = { $regex: new RegExp(`^${escapeStringRegexp(value)}$`, 'i') };
+        newQuery[name] = { $regex: new RegExp(`^${escapeRegExp(value)}$`, 'i') };
       });
     }
     return newQuery;

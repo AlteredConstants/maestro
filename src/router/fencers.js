@@ -38,6 +38,8 @@ router.get('/:id/events', async (ctx) => {
 });
 
 router.post('/', (ctx) => {
+  // TODO: Implement.
+  // eslint-disable-next-line no-console
   console.log(ctx.request.body);
 });
 

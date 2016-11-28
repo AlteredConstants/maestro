@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { set } from 'lodash/fp';
 import parseTournaments from 'parser/askfredXml/tournaments';
 import testData from 'test/data/askfredTournamentXml.json';
 
@@ -54,6 +55,16 @@ describe('Parsing the askFRED XML Tournaments node list', () => {
       const result = parseTournaments(testData);
       expect(result).to.have.deep.property('events[1].preregisteredFencers')
         .with.members(['82126', '19931', '69056']);
+    });
+
+    it('should handle multiple tournaments per file', () => {
+      const newTournament = set('$.Name', 'Double Tournament!', testData.FencingData.Tournament[0]);
+      const doubleTournament = set('FencingData.Tournament[1]', newTournament, testData);
+      const result = parseTournaments(doubleTournament);
+      expect(result).to.have.property('tournaments').that.is.an('array').of.length(2);
+      expect(result).to.have.deep.property('tournaments[1].name').that.equals('Double Tournament!');
+      expect(result).to.have.property('events').that.is.an('array').of.length(6);
+      expect(result).to.have.deep.property('events[3].askfredId').that.equals('83235');
     });
   });
 });

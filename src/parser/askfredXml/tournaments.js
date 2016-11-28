@@ -1,3 +1,5 @@
+import { zipAll, flatten } from 'lodash/fp';
+
 function parsePreregistrations(eventNode) {
   return eventNode.PreReg.map(preRegNode => preRegNode.$.CompetitorID);
 }
@@ -32,10 +34,7 @@ function parseTournament(tournamentNode) {
 
 export default function parseTournaments(documentRoot) {
   const tournamentNodeList = documentRoot.FencingData.Tournament;
-  return tournamentNodeList.reduce((result, nextNode) => {
-    const [tournament, events] = parseTournament(nextNode);
-    result.tournaments.push(tournament);
-    result.events = result.events.concat(events);
-    return result;
-  }, { tournaments: [], events: [] });
+  // Zip together the array of [tournament, [event]] tuples from parseTournament.
+  const [tournaments, events] = zipAll(tournamentNodeList.map(parseTournament));
+  return { tournaments, events: flatten(events) };
 }
