@@ -1,9 +1,7 @@
 import Reflux from 'reflux';
-import Fencer, {ByeFencer} from 'models/fencer';
+import Fencer, { ByeFencer } from 'models/fencer';
 import FencerActions from 'actions/fencer_actions';
-import Immutable from 'immutable';
 import LocalStorage from 'interfaces/local_storage';
-import is from 'check-types';
 
 function getAllLocal() {
   return LocalStorage.getMany(Fencer);
@@ -19,17 +17,17 @@ function updateLocal(update) {
 }
 
 function onAddFencer(fencer) {
-  let fencers = updateLocal(fencers => fencers.set(fencer.id, fencer));
-  this.trigger(fencers);
+  const updatedFencers = updateLocal(fencers => fencers.set(fencer.id, fencer));
+  this.trigger(updatedFencers);
 }
 
 function onRemoveFencer(fencer) {
-  let fencers = updateLocal(fencers => fencers.delete(fencer.id));
-  this.trigger(fencers);
+  const updatedFencers = updateLocal(fencers => fencers.delete(fencer.id));
+  this.trigger(updatedFencers);
 }
 
 export default Reflux.createStore({
-  init: function() {
+  init() {
     this.listenTo(FencerActions.add, onAddFencer);
     this.listenTo(FencerActions.remove, onRemoveFencer);
   },
@@ -43,5 +41,5 @@ export default Reflux.createStore({
       return ByeFencer;
     }
     return getAllLocal().get(id);
-  }
+  },
 });

@@ -1,17 +1,15 @@
 import is from 'check-types';
 
 function splitFirst(keyPath) {
-  if (is.string(keyPath)) {
-    keyPath = keyPath.split('.');
-  }
-  return { key: keyPath.shift(), remainingPath: keyPath };
+  const splitKeyPath = is.string(keyPath) ? keyPath.split('.') : keyPath;
+  return { key: splitKeyPath.shift(), remainingPath: splitKeyPath };
 }
 
 export function getField(fields, keyPath) {
   if (is.not.assigned(fields)) {
-    return;
+    return null;
   }
-  let { key, remainingPath } = splitFirst(keyPath);
+  const { key, remainingPath } = splitFirst(keyPath);
   if (remainingPath.length === 0) {
     return fields[key];
   }
@@ -22,7 +20,7 @@ export function setField(fields, keyPath, value) {
   if (is.not.assigned(fields)) {
     return;
   }
-  let { key, remainingPath } = splitFirst(keyPath);
+  const { key, remainingPath } = splitFirst(keyPath);
   if (remainingPath.length === 0) {
     fields[key] = value;
     return;

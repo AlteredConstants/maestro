@@ -2,13 +2,15 @@ import Immutable from 'immutable';
 import is from 'check-types';
 import FieldBuilder from 'models/field_builder';
 
-let baseInternal = new WeakMap();
-let normalizedFieldsByModel = new WeakMap();
+const baseInternal = new WeakMap();
+const normalizedFieldsByModel = new WeakMap();
 
 function isHomogeneousByModel(iterable) {
   let type;
-  return iterable.every(function(item) {
+  return iterable.every((item) => {
     if (is.not.assigned(type)) {
+      // This function is only ever called from Model.
+      // eslint-disable-next-line no-use-before-define
       if (is.not.instance(item, Model)) {
         return false;
       }
@@ -20,6 +22,8 @@ function isHomogeneousByModel(iterable) {
 }
 
 function normalize(field) {
+  // This function is only ever called from Model.
+  // eslint-disable-next-line no-use-before-define
   if (is.instance(field, Model)) {
     return field.id;
   } else if (is.instance(field, Immutable.Iterable)) {
@@ -28,9 +32,8 @@ function normalize(field) {
       normalized = normalized.toList();
     }
     return normalized;
-  } else {
-    return field;
   }
+  return field;
 }
 
 export default class Model {
@@ -40,12 +43,12 @@ export default class Model {
         .setDefaults(operations.defaults)
         .denormalize(operations.denormalizers)
         .translate(operations.translations)
-        .toImmutable()
+        .toImmutable(),
     );
     baseInternal.set(this.constructor, internal);
     if (!normalizedFieldsByModel.has(this.constructor) &&
       is.assigned(operations.denormalizers)) {
-      let normalizedFields = Object.keys(operations.denormalizers);
+      const normalizedFields = Object.keys(operations.denormalizers);
       normalizedFieldsByModel.set(this.constructor, normalizedFields);
     }
   }

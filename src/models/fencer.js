@@ -3,12 +3,12 @@ import Model from 'models/model';
 const internal = new WeakMap();
 
 const defaults = {
-  id: () => Date.now().toString()
+  id: () => Date.now().toString(),
 };
 
 export default class Fencer extends Model {
   constructor(params) {
-    super(params, internal, {defaults});
+    super(params, internal, { defaults });
   }
 
   get name() {
@@ -16,4 +16,4 @@ export default class Fencer extends Model {
   }
 }
 
-export const ByeFencer = new Fencer({id: 'bye', name: 'Sunny'});
+export const ByeFencer = new Fencer({ id: 'bye', name: 'Sunny' });

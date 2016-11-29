@@ -6,42 +6,46 @@ import FencerStore from 'stores/fencer_store';
 const internal = new WeakMap();
 
 function getScoreSheet(fencer) {
-  return Immutable.Map({fencer, score: 0});
+  return Immutable.Map({ fencer, score: 0 });
 }
 
 let tempId = 0;
 const defaults = {
-  id: () => Date.now() + '-' + tempId++,
-  isCompleted: false
+  id: () => {
+    const id = `${Date.now()}-${tempId}`;
+    tempId += 1;
+    return id;
+  },
+  isCompleted: false,
 };
 
 const denormalizers = {
   'right.fencer': {
     model: Fencer,
-    run: FencerStore.get
+    run: FencerStore.get,
   },
   'left.fencer': {
     model: Fencer,
-    run: FencerStore.get
+    run: FencerStore.get,
   },
   right: {
     model: Immutable.Map,
-    run: Immutable.Map
+    run: Immutable.Map,
   },
   left: {
     model: Immutable.Map,
-    run: Immutable.Map
-  }
+    run: Immutable.Map,
+  },
 };
 
 const translations = {
   right: rightFencer => getScoreSheet(rightFencer),
-  left: leftFencer => getScoreSheet(leftFencer)
+  left: leftFencer => getScoreSheet(leftFencer),
 };
 
 export default class Bout extends Model {
   constructor(params) {
-    super(params, internal, {defaults, denormalizers, translations});
+    super(params, internal, { defaults, denormalizers, translations });
   }
 
   get rightFencer() {
@@ -69,7 +73,7 @@ export default class Bout extends Model {
   }
 
   serialize() {
-    return super.serialize().withMutations(fields => {
+    return super.serialize().withMutations((fields) => {
       fields.delete('rightFencer');
       fields.delete('leftFencer');
     });

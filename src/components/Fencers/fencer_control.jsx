@@ -1,20 +1,22 @@
 import React from 'react';
 import FencerActions from 'actions/fencer_actions';
+import Fencer from 'models/fencer';
 
-export default React.createClass({
-  removeFencer(id) {
-    FencerActions.remove(id);
-  },
+function removeFencer(id) {
+  FencerActions.remove(id);
+}
 
-  render() {
-    const fencer = this.props.fencer;
-    return (
-      <span>
-        <button onClick={this.removeFencer.bind(this, fencer.id)}>
-          Remove
-        </button>
-        {' ' + fencer.name}
-      </span>
-    );
-  }
-});
+export default function FencerControl({ fencer }) {
+  return (
+    <span>
+      <button onClick={() => removeFencer(fencer.id)}>
+        Remove
+      </button>
+      {` ${fencer.name}`}
+    </span>
+  );
+}
+
+FencerControl.propTypes = {
+  fencer: React.PropTypes.instanceOf(Fencer),
+};

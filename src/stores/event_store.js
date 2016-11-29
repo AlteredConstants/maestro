@@ -7,7 +7,7 @@ import LocalStorage from 'interfaces/local_storage';
 import is from 'check-types';
 
 function getLocal() {
-  let event = LocalStorage.getOne(Event);
+  const event = LocalStorage.getOne(Event);
   return is.assigned(event) ? event : new Event();
 }
 
@@ -21,21 +21,21 @@ function updateLocal(update) {
 }
 
 function onAddFencer(fencer) {
-  let updatedEvent = updateLocal(e => e.addFencer(fencer));
+  const updatedEvent = updateLocal(e => e.addFencer(fencer));
   this.trigger(updatedEvent);
 }
 
 function onRemoveFencer(fencer) {
-  let updatedEvent = updateLocal(e => e.removeFencer(fencer));
+  const updatedEvent = updateLocal(e => e.removeFencer(fencer));
   this.trigger(updatedEvent);
 }
 
 function onStart() {
-  let updatedEvent = updateLocal(function(event) {
+  const updatedEvent = updateLocal((event) => {
     if (event.fencers.size < 2) {
       throw new Error('Not enough fencers in the event.');
     }
-    let seededCompetitors = event.fencers.toList();
+    const seededCompetitors = event.fencers.toList();
     RoundActions.start(seededCompetitors);
     return event.start();
   });
@@ -43,17 +43,17 @@ function onStart() {
 }
 
 function onStop() {
-  let updatedEvent = updateLocal(event => event.stop());
+  const updatedEvent = updateLocal(event => event.stop());
   this.trigger(updatedEvent);
 }
 
 function onNextRoundStarted(round) {
-  let updatedEvent = updateLocal(event => event.setCurrentRound(round));
+  const updatedEvent = updateLocal(event => event.setCurrentRound(round));
   this.trigger(updatedEvent);
 }
 
 export default Reflux.createStore({
-  init: function() {
+  init() {
     this.listenTo(EventActions.addFencer, onAddFencer);
     this.listenTo(EventActions.removeFencer, onRemoveFencer);
     this.listenTo(EventActions.start, onStart);
@@ -64,5 +64,5 @@ export default Reflux.createStore({
 
   get() {
     return getLocal();
-  }
+  },
 });

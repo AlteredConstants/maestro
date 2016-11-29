@@ -1,9 +1,9 @@
-var spdy = require('spdy');
-var Static = require('node-static');
+const spdy = require('spdy');
+const Static = require('node-static');
 
-var file = new Static.Server('.', { cache: 0 });
+const file = new Static.Server('.', { cache: 0 });
 
-var options = {
+const options = {
   plain: true,
   ssl: false,
 
@@ -11,10 +11,10 @@ var options = {
   windowSize: 1024 * 1024, // Server's window size
 
   // **optional** if true - server will send 3.1 frames on 3.0 *plain* spdy
-  autoSpdy31: false
+  autoSpdy31: false,
 };
 
-var server = spdy.createServer(options, function(request, response) {
+const server = spdy.createServer(options, (request, response) => {
   file.serve(request, response);
 });
 

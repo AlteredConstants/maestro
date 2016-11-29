@@ -5,5 +5,5 @@ export default Reflux.createActions([
   'removeFencer',
   'start',
   'stop',
-  'nextRoundStarted'
+  'nextRoundStarted',
 ]);

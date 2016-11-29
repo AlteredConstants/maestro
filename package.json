@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint ."
+    "lint": "eslint --ext js --ext jsx .",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "check-types": "^7.0.1",

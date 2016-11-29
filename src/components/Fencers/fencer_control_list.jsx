@@ -1,12 +1,18 @@
 import React from 'react';
+import is from 'check-types';
 import Fencer from 'models/fencer';
 import FencerActions from 'actions/fencer_actions';
 import FencerControl from './fencer_control';
-import is from 'check-types';
 
+// Stuck with object until input "new" has its value lifted
+// into a global state object (with onChange hooks).
 export default React.createClass({
+  propTypes: {
+    fencers: React.PropTypes.arrayOf(React.PropTypes.instanceOf(Fencer)),
+  },
+
   addFencer() {
-    const fencerNode = this.refs.new;
+    const fencerNode = this.new;
     const name = fencerNode.value;
     fencerNode.value = '';
     FencerActions.add(new Fencer({ name }));
@@ -22,15 +28,17 @@ export default React.createClass({
       <ul>
         {
           fencers.map(fencer =>
-            <li key={'fencer-' + fencer.id}>
+            <li key={`fencer-${fencer.id}`}>
               <FencerControl fencer={fencer} />
-            </li>
+            </li>,
           )
-          // TODO: Remove once we can update to React 0.13.
-          .toArray()
         }
-        <li><input ref="new" /> <button onClick={this.addFencer}>Add</button></li>
+        <li>
+          <input ref={(c) => { this.new = c; }} />
+          {' '}
+          <button onClick={this.addFencer}>Add</button>
+        </li>
       </ul>
     );
-  }
+  },
 });

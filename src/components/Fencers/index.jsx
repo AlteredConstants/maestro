@@ -9,8 +9,8 @@ export default React.createClass({
     return (
       <section>
         <h1>Fencers</h1>
-        <FencerControlList fencers={this.state.fencers} />
+        <FencerControlList fencers={this.state.fencers && this.state.fencers.toArray()} />
       </section>
     );
-  }
+  },
 });

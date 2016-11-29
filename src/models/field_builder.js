@@ -1,7 +1,7 @@
 import Immutable from 'immutable';
 import is from 'check-types';
 import getArgumentNames from 'get-parameter-names';
-import {getField, setField} from 'utilities/key_path';
+import { getField, setField } from 'utilities/key_path';
 
 function forEach(obj, transformation, fields) {
   if (is.assigned(obj)) {
@@ -20,13 +20,13 @@ function getDenormalized(denormalizer, field) {
 }
 
 function applyDenormalization(denormalizer, keyPath, fields) {
-  let field = getField(fields, keyPath);
+  const field = getField(fields, keyPath);
   if (is.not.assigned(field)) {
     return;
   }
   let denormalizedField;
   if (is.not.string(field) && is.function(field[Symbol.iterator])) {
-    denormalizedField = Immutable.Map().withMutations(fieldMap => {
+    denormalizedField = Immutable.Map().withMutations((fieldMap) => {
       field
         .map(fieldItem => getDenormalized(denormalizer, fieldItem))
         .forEach(fieldItem => fieldMap.set(fieldItem.id, fieldItem));
@@ -39,7 +39,7 @@ function applyDenormalization(denormalizer, keyPath, fields) {
 }
 
 function applyTranslation(translation, keyPath, fields) {
-  let baseArgs = getArgumentNames(translation).map(name => getField(fields, name));
+  const baseArgs = getArgumentNames(translation).map(name => getField(fields, name));
   if (baseArgs.every(arg => is.assigned(arg))) {
     setField(fields, keyPath, translation(...baseArgs));
   }

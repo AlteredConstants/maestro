@@ -10,27 +10,27 @@ const internal = new WeakMap();
 const defaults = {
   id: () => Date.now().toString(),
   fencers: Immutable.Map(),
-  isRunning: false
+  isRunning: false,
 };
 
 const denormalizers = {
   fencers: {
     model: Fencer,
-    run: FencerStore.get
+    run: FencerStore.get,
   },
   currentRound: {
     model: Round,
-    run: RoundStore.get
-  }
+    run: RoundStore.get,
+  },
 };
 
 const translations = {
-  fencers: fencers => Immutable.Map(fencers)
+  fencers: fencers => Immutable.Map(fencers),
 };
 
 export default class Event extends Model {
   constructor(params) {
-    super(params, internal, {defaults, denormalizers, translations});
+    super(params, internal, { defaults, denormalizers, translations });
   }
 
   get fencers() {
@@ -46,13 +46,13 @@ export default class Event extends Model {
   }
 
   addFencer(fencer) {
-    let newState = internal.get(this)
+    const newState = internal.get(this)
       .updateIn(['fencers'], list => list.set(fencer.id, fencer));
     return new Event(newState);
   }
 
   removeFencer(fencer) {
-    let newState = internal.get(this)
+    const newState = internal.get(this)
       .updateIn(['fencers'], list => list.delete(fencer.id));
     return new Event(newState);
   }
