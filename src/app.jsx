@@ -1,7 +1,9 @@
 import React from 'react';
-import Router from 'react-router';
+import { render } from 'react-dom';
+import { Router, hashHistory } from 'react-router';
 import routes from 'routes';
 
-Router.run(routes, function(Handler) {
-  React.render(<Handler/>, document.getElementById('main'));
-});
+render(
+  <Router history={hashHistory} routes={routes} />,
+  document.getElementById('main'),
+);

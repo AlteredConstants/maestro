@@ -6,7 +6,7 @@ import is from 'check-types';
 
 export default React.createClass({
   addFencer() {
-    const fencerNode = this.refs.new.getDOMNode();
+    const fencerNode = this.refs.new;
     const name = fencerNode.value;
     fencerNode.value = '';
     FencerActions.add(new Fencer({ name }));

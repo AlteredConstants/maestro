@@ -1,11 +1,9 @@
 import React from 'react';
 import Reflux from 'reflux';
-import Router from 'react-router';
 import FencerStateMixin from '../mixins/fencer_state';
 import EventActions from 'actions/event_actions';
 import EventStore from 'stores/event_store';
 import is from 'check-types';
-const RouteHandler = Router.RouteHandler;
 
 export default React.createClass({
   mixins: [FencerStateMixin, Reflux.connect(EventStore, "event")],
@@ -41,7 +39,7 @@ export default React.createClass({
             {buttonText}
           </button>
         </h1>
-        <RouteHandler event={event} fencers={fencers} />
+        {React.cloneElement(this.props.children, { event, fencers })}
       </section>
     );
   }

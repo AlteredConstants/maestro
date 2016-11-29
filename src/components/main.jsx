@@ -1,7 +1,5 @@
 import React from 'react';
-import Router from 'react-router';
 import MainNavigation from './main-navigation';
-let RouteHandler = Router.RouteHandler;
 
 export default React.createClass({
   render() {
@@ -9,7 +7,7 @@ export default React.createClass({
       <section>
         <h1>Maestro</h1>
         <MainNavigation />
-        <RouteHandler />
+        {this.props.children}
       </section>
     );
   }
