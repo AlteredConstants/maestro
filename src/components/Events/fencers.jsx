@@ -1,5 +1,5 @@
 import React from 'react';
-import FencerSelectList from './fencer_select_list.jsx!';
+import FencerSelectList from './fencer_select_list';
 
 export default React.createClass({
   render() {

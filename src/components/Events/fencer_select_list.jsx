@@ -1,5 +1,5 @@
 import React from 'react';
-import FencerSelect from './fencer_select.jsx!';
+import FencerSelect from './fencer_select';
 import is from 'check-types';
 
 export default React.createClass({

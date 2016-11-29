@@ -1,6 +1,6 @@
 import React from 'react';
 import FencerStateMixin from '../mixins/fencer_state';
-import FencerControlList from './fencer_control_list.jsx!';
+import FencerControlList from './fencer_control_list';
 
 export default React.createClass({
   mixins: [FencerStateMixin],

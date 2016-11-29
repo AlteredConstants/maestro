@@ -1,0 +1,13 @@
+{
+  "presets": [
+    ["env", {
+      "browsers": ["last 2 versions"],
+      "modules": false
+    }],
+    "stage-3",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
+}

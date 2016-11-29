@@ -3,21 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Maestro</title>
-    <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
-    <script>
-/*        var systemLocate = System.locate;
-        System.locate = function(load) {
-            var System = this; // its good to ensure exact instance-binding
-            return Promise.resolve(systemLocate.call(this, load)).then(function(address) {
-                return address + System.cacheBust;
-            });
-        };
-        System.cacheBust = '?bust=' + Date.now();*/
-        System.import('app.jsx!');
-    </script>
 </head>
 <body>
 <div id="main"></div>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Fencer from 'models/fencer';
 import FencerActions from 'actions/fencer_actions';
-import FencerControl from './fencer_control.jsx!';
+import FencerControl from './fencer_control';
 import is from 'check-types';
 
 export default React.createClass({
