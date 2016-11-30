@@ -1,9 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const rootPath = __dirname;
 const PATH = {
+  static: path.join(rootPath, 'static'),
   source: path.join(rootPath, 'src'),
   test: path.join(rootPath, 'test'),
   serve: path.join(rootPath, 'build'),
@@ -39,6 +41,9 @@ const base = {
       { test: /\.jsx?$/, loader: 'babel-loader', include: [PATH.source, PATH.test] },
     ],
   },
+  plugins: [
+    new CopyWebpackPlugin([{ from: PATH.static }]),
+  ],
 };
 
 const app = merge(base, {
