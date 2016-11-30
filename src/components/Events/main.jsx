@@ -1,5 +1,8 @@
 import React from 'react';
+import { Match } from 'react-router';
 import Reflux from 'reflux';
+import Fencers from 'components/Events/fencers';
+import Bracket from 'components/Events/bracket';
 import EventActions from 'actions/event_actions';
 import EventStore from 'stores/event_store';
 import is from 'check-types';
@@ -7,7 +10,7 @@ import FencerStateMixin from '../mixins/fencer_state';
 
 export default React.createClass({
   propTypes: {
-    children: React.PropTypes.element,
+    pathname: React.PropTypes.string,
   },
 
   mixins: [FencerStateMixin, Reflux.connect(EventStore, 'event')],
@@ -41,7 +44,15 @@ export default React.createClass({
             {buttonText}
           </button>
         </h1>
-        {React.cloneElement(this.props.children, { event, fencers })}
+        <Match
+          exactly
+          pattern={`${this.props.pathname}`}
+          render={() => <Fencers event={event} fencers={fencers} />}
+        />
+        <Match
+          pattern={`${this.props.pathname}/bracket`}
+          render={() => <Bracket event={event} />}
+        />
       </section>
     );
   },

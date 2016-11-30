@@ -22,7 +22,7 @@ export default React.createClass({
     const fencers = this.props.fencers;
     if (is.not.assigned(fencers)) {
       // TODO: Should probably have a spinner or such.
-      return null;
+      return <p>Nothing to see here...</p>;
     }
     return (
       <ul>

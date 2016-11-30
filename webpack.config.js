@@ -34,7 +34,8 @@ const base = {
   },
   module: {
     rules: [
-      { test: /\.jsx?$/, loader: 'eslint-loader', include: [PATH.source, PATH.test], enforce: 'pre' },
+      // Too noisy right now.
+      // { test: /\.jsx?$/, loader: 'eslint-loader', include: [PATH.source, PATH.test], enforce: 'pre' },
       { test: /\.jsx?$/, loader: 'babel-loader', include: [PATH.source, PATH.test] },
     ],
   },
@@ -52,8 +53,8 @@ const debug = {
   devtool: 'sourcemap',
   devServer: {
     port: 8080,
-    inline: true,
     contentBase: PATH.serve,
+    historyApiFallback: true,
     proxy: {
       '/api': { target: 'http://localhost:3000' },
     },
