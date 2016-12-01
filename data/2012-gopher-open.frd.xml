@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FencingData  Version="4.0" Context="PreReg" xmlns="http://www.askfred.net" xmlns:ft="http://www.fencingtime.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FencerDatabase>
+		<Fencer FencerID="69056" FirstName="Zeff" LastName="Svoboda" ClubID1="716"  DivisionID="35" BirthYear="1987"  Gender="M" >
+			<Membership Org='USFA'>100131387</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="82126" FirstName="Willa" LastName="Gelvick" ClubID1="716"  DivisionID="35" BirthYear="1990"  Gender="F" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="19931" FirstName="Ryan" LastName="Harris" ClubID1="1"  DivisionID="69" BirthYear="1975"  Gender="M" >
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">C2013</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+		</Fencer>
+		<Fencer FencerID="88095" FirstName="Lora" LastName="Orme" ClubID1="6340"  DivisionID="35" BirthYear="1989"  Gender="F" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="84181" FirstName="Rachel" LastName="Kainz" ClubID1="1107" ClubID2="6340" DivisionID="35" BirthYear="1997"  Gender="F" >
+			<Membership Org='USFA'>100139193</Membership>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="23849" FirstName="Paul " LastName="Piche" ClubID1="1107" ClubID2="6340" DivisionID="35" BirthYear="1992"  Gender="M" >
+			<Membership Org='USFA'>100093077</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="29963" FirstName="Steven" LastName="Lipovetsky" ClubID1="349"  DivisionID="35" BirthYear="1995"  Gender="M" >
+			<Membership Org='USFA'>100090508</Membership>
+			<Rating Org="USFA" Weapon="Epee">D2016</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="58542" FirstName="Josh" LastName="Hrad" ClubID1="1107" ClubID2="6340" DivisionID="35" BirthYear="1994"  Gender="M" >
+			<Membership Org='USFA'>100139231</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="39773" FirstName="Christopher" LastName="Looney" ClubID1="349" ClubID2="3315" DivisionID="35" BirthYear="1987"  Gender="M" >
+			<Membership Org='USFA'>100065201</Membership>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="42367" FirstName="Brian" LastName="Hodge" ClubID1="716"  DivisionID="35" BirthYear="1990"  Gender="M" >
+			<Membership Org='USFA'>100066332</Membership>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92696" FirstName="Chris" LastName="Nguyen" ClubID1="716"  DivisionID="35" BirthYear="1990"  Gender="M" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92714" FirstName="Ian" LastName="Moret" ClubID1="716"  DivisionID="35" BirthYear="1985"  Gender="M" >
+			<Membership Org='USFA'>100148743</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="84186" FirstName="Sarah" LastName="Pederson" ClubID1="1107"  DivisionID="35" BirthYear="1997"  Gender="F" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="44803" FirstName="William" LastName="Campbell" ClubID1="1107"  DivisionID="35" BirthYear="1994"  Gender="M" >
+			<Membership Org='USFA'>100100045</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92942" FirstName="Aaron" LastName="Sussman" ClubID1="716"  DivisionID="35" BirthYear="1993"  Gender="M" >
+			<Membership Org='USFA'>100149643</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="93047" FirstName="Aidan" LastName="Hutt" ClubID1="716"  DivisionID="35" BirthYear="1993"  Gender="M" >
+			<Membership Org='USFA'>100070928</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="82026" FirstName="Kyle" LastName="Rumery" ClubID1="716"  DivisionID="35" BirthYear="1989"  Gender="M" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="33553" FirstName="Jason" LastName="Schoenack" ClubID1="5739"  DivisionID="69" BirthYear="1971"  Gender="M" >
+			<Membership Org='USFA'>100092419</Membership>
+			<Rating Org="USFA" Weapon="Foil">E2014</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="60410" FirstName="Matt" LastName="Kramer" ClubID1="5739"  DivisionID="35" BirthYear="1991"  Gender="M" >
+			<Membership Org='USFA'>100125232</Membership>
+			<Rating Org="USFA" Weapon="Foil">E2016</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="21456" FirstName="Clay" LastName="Willoughby" ClubID1="2960"  DivisionID="69" BirthYear="1970"  Gender="M" >
+			<Membership Org='USFA'>100095235</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="79389" FirstName="Thatcher" LastName="Ellingson" ClubID1="5739"  DivisionID="69" BirthYear="1999"  Gender="M" >
+			<Membership Org='USFA'>100136486</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="23848" FirstName="Henry" LastName="Piche" ClubID1="1107"  DivisionID="35" BirthYear="1992"  Gender="M" >
+			<Membership Org='USFA'>100093076</Membership>
+			<Rating Org="USFA" Weapon="Foil">E2014</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92659" FirstName="Katherine" LastName="Yan" ClubID1="349"  DivisionID="35" BirthYear="1998"  Gender="F" >
+			<Membership Org='USFA'>100148580</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="53814" FirstName="Xuerong" LastName="Yu" ClubID1="716"  DivisionID="35" BirthYear="1989"  Gender="M" >
+			<Membership Org='USFA'>100129018</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92691" FirstName="Xiaqing" LastName="Bai" ClubID1="716"  DivisionID="35" BirthYear="1990"  Gender="F" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="81733" FirstName="Kaitlyn" LastName="Carver" ClubID1="716"  DivisionID="35" BirthYear="1992"  Gender="F" >
+			<Membership Org='USFA'>100136774</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92694" FirstName="Alicia" LastName="Tatley" ClubID1="716"  DivisionID="35" BirthYear="1992"  Gender="F" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="81391" FirstName="Riley" LastName="Nornes" ClubID1="716"  DivisionID="35" BirthYear="1992"  Gender="M" >
+			<Membership Org='USFA'>100136525</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="34051" FirstName="Thomas" LastName="Bergen" ClubID1="349" ClubID2="1" DivisionID="35" BirthYear="1993"  Gender="M" >
+			<Membership Org='USFA'>100091308</Membership>
+			<Rating Org="USFA" Weapon="Epee">D2016</Rating>
+			<Rating Org="USFA" Weapon="Foil">C2014</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92866" FirstName="Zachary" LastName="Cottington" ClubID1="247"  DivisionID="35" BirthYear="1997"  Gender="M" >
+			<Membership Org='USFA'>100144230</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92917" FirstName="Sarah" LastName="Park" ClubID1="716"  DivisionID="35" BirthYear="1995"  Gender="F" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="72250" FirstName="Samantha" LastName="Getting" ClubID1="8586" ClubID2="6340" DivisionID="37" BirthYear="1996"  Gender="F" >
+			<Membership Org='USFA'>100132704</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="76498" FirstName="Dylan" LastName="Carlson" ClubID1="716"  DivisionID="35" BirthYear="1992"  Gender="M" >
+			<Membership Org='USFA'>100136212</Membership>
+			<Rating Org="USFA" Weapon="Saber">E2014</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+		<Fencer FencerID="53362" FirstName="Brianna" LastName="Smith" ClubID1="349"  DivisionID="35" BirthYear="1991"  Gender="F" >
+			<Membership Org='USFA'>100100807</Membership>
+			<Rating Org="USFA" Weapon="Saber">E2015</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+		<Fencer FencerID="42097" FirstName="Andrew" LastName="Kirchman" ClubID1="1"  DivisionID="35" BirthYear="1988"  Gender="M" >
+			<Membership Org='USFA'>100101826</Membership>
+			<Rating Org="USFA" Weapon="Saber">E2016</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+		<Fencer FencerID="20929" FirstName="Meghan" LastName="Wolff" ClubID1="1592"  DivisionID="68" BirthYear="1988"  Gender="F" >
+			<Membership Org='USFA'>100083696</Membership>
+			<Rating Org="USFA" Weapon="Saber">E2014</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+		<Fencer FencerID="72029" FirstName="Cole" LastName="Hodsdon" ClubID1="1107"  DivisionID="35" BirthYear="1995"  Gender="M" >
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92692" FirstName="Brian" LastName="Roth" ClubID1="716"  DivisionID="35" BirthYear="1995"  Gender="M" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92704" FirstName="Eric" LastName="Schulz" ClubID1="716"  DivisionID="35" BirthYear="1981"  Gender="M" >
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="92756" FirstName="Tara" LastName="Dailey" ClubID1="247"  DivisionID="35" BirthYear="1997"  Gender="F" >
+			<Membership Org='USFA'>100148014</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="81597" FirstName="Will" LastName="Seltz-Drew" ClubID1="349" ClubID2="1" DivisionID="35" BirthYear="1997"  Gender="M" >
+			<Membership Org='USFA'>100136705</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="82480" FirstName="Thomas" LastName="Tang" ClubID1="247"  DivisionID="35" BirthYear="1998"  Gender="M" >
+			<Membership Org='USFA'>100137252</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="85143" FirstName="Trevor" LastName="Rohloff" ClubID1="2493"  DivisionID="35" BirthYear="1993"  Gender="M" >
+			<Membership Org='USFA'>100138706</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="80184" FirstName="Elliot" LastName="Young" ClubID1="2493"  DivisionID="35" BirthYear="1992"  Gender="M" >
+			<Membership Org='USFA'>100135863</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="6971" FirstName="Adam" LastName="Soroko" ClubID1="247"  DivisionID="35" BirthYear="1952"  Gender="M" >
+			<Membership Org='USFA'>100041199</Membership>
+			<Rating Org="USFA" Weapon="Foil">E2016</Rating>
+			<Rating Org="USFA" Weapon="Epee">D2016</Rating>
+			<Rating Org="USFA" Weapon="Saber">E2014</Rating>
+		</Fencer>
+		<Fencer FencerID="50878" FirstName="Merrick" LastName="Pierson Smela" ClubID1="2436" ClubID2="247" DivisionID="35" BirthYear="1997"  Gender="M" >
+			<Membership Org='USFA'>100102292</Membership>
+			<Rating Org="USFA" Weapon="Epee">D2014</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="68955" FirstName="Jane" LastName="Hulse" ClubID1="349"  DivisionID="35" BirthYear="1997"  Gender="F" >
+			<Membership Org='USFA'>100131055</Membership>
+			<Rating Org="USFA" Weapon="Epee">E2016</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="56991" FirstName="Rebecca" LastName="Albrecht" ClubID1="8452" ClubID2="247" DivisionID="37" BirthYear="1996"  Gender="F" >
+			<Membership Org='USFA'>100123822</Membership>
+			<Rating Org="USFA" Weapon="Foil">D2014</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="6140" FirstName="Hewitt" LastName="White" ClubID1="349"  DivisionID="35" BirthYear="1962"  Gender="M" >
+			<Membership Org='USFA'>100026841</Membership>
+			<Rating Org="USFA" Weapon="Foil">E2016</Rating>
+			<Rating Org="USFA" Weapon="Saber">C2014</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+		<Fencer FencerID="44700" FirstName="Timothy" LastName="Martin" ClubID1="6340"  DivisionID="35" BirthYear="1995"  Gender="M" >
+			<Membership Org='USFA'>100119164</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="33723" FirstName="Sveinn" LastName="Johnson" ClubID1="247"  DivisionID="35" BirthYear="1996"  Gender="M" >
+			<Membership Org='USFA'>100092321</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="31627" FirstName="John" LastName="Munson" ClubID1="1"  DivisionID="69" BirthYear="1993"  Gender="M" >
+			<Membership Org='USFA'>100101353</Membership>
+			<Rating Org="USFA" Weapon="Foil">E2016</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="76180" FirstName="Soren" LastName="LePage" ClubID1="247"  DivisionID="35" BirthYear="1999"  Gender="M" >
+			<Membership Org='USFA'>100134463</Membership>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+			<Rating Org="USFA" Weapon="Saber">U</Rating>
+		</Fencer>
+		<Fencer FencerID="19703" FirstName="Steve" LastName="Tubbs" ClubID1="349"  DivisionID="35" BirthYear="1964"  Gender="M" >
+			<Membership Org='USFA'>100082661</Membership>
+			<Rating Org="USFA" Weapon="Saber">C2016</Rating>
+			<Rating Org="USFA" Weapon="Foil">U</Rating>
+			<Rating Org="USFA" Weapon="Epee">U</Rating>
+		</Fencer>
+	</FencerDatabase>
+	<ClubDatabase>
+		<Club ClubID="1107" Name="Roseville Area High School" DivisionID="35" Abbreviation="RAHS" City="Roseville" State="MN"  />
+		<Club ClubID="716" Name="University of Minnesota Fencing Club" DivisionID="35" Abbreviation="UMFC" City="Minneapolis" State="MN"  />
+		<Club ClubID="6340" Name="Remi's Academy of Defense" DivisionID="35" Abbreviation="R.A.D." City="" State=""  />
+		<Club ClubID="349" Name="Twin Cities Fencing Club" DivisionID="35" Abbreviation="TCFC MN" City="" State="MN"  />
+		<Club ClubID="247" Name="Minnesota Sword Club" DivisionID="35" Abbreviation="MSC" City="Minneapolis" State="MN"  />
+		<Club ClubID="5739" Name="Fargo Park District Fencing Club" DivisionID="69" Abbreviation="FPDFC" City="Fargo" State="ND"  />
+		<Club ClubID="2960" Name="University of North Dakota Fencing Club" DivisionID="69" Abbreviation="UNDFC" City="Grand Forks" State="ND"  />
+		<Club ClubID="1" Name="Unattached (or Unknown)" DivisionID="69" Abbreviation="UNAT" City="" State=""  />
+		<Club ClubID="1592" Name="Broken Fencers Guild" DivisionID="68" Abbreviation="BFG" City="Austin" State="TX"  />
+		<Club ClubID="2493" Name="Minnesota State University Moorhead" DivisionID="35" Abbreviation="MSUMFC" City="Moorhead" State="MN"  />
+		<Club ClubID="3315" Name="Monterey Peninsula Fencers' Club" DivisionID="3" Abbreviation="MPFC" City="Monterey" State="CA"  />
+		<Club ClubID="8586" Name="Uw Fencing Club" DivisionID="37" Abbreviation="UWFC" City="" State=""  />
+		<Club ClubID="2436" Name="Blake High School" DivisionID="35" Abbreviation="BLAKE" City="" State="MN"  />
+		<Club ClubID="8452" Name="Lawrence Univ. Fencing Ncaa" DivisionID="69" Abbreviation="LAWRENCEU" City="" State=""  />
+	</ClubDatabase>
+	<Tournament TournamentID="20209" Name="Gopher Open 2012" Location="Beirman Gym" StartDate="2012-10-20" EndDate="2012-10-21" Org="USFA" Fee="0.00" FeeCurrency="" >
+		<Event EventID="83235" EventDateTime="2012-10-20 09:00:00" Weapon="Epee" Gender="Mixed" EnforceGender="False" AgeLimitMin="None" AgeLimitMax="None" EnforceAge="False" RatingLimit="Open" EnforceRating="False" Description="Non-USFA" IsTeam="False" Fee="" FeeCurrency="" >
+			<PreReg CompetitorID="44803" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="82126" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="19931" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="42367" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="58542" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="93047" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="84181" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="29963" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="39773" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92714" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92696" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="88095" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="84186" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="23849" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="82026" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92942" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="69056" EventFeePaid="" TournamentFeePaid="" />
+		</Event>
+		<Event EventID="83236" EventDateTime="2012-10-20 11:00:00" Weapon="Foil" Gender="Mixed" EnforceGender="False" AgeLimitMin="None" AgeLimitMax="None" EnforceAge="False" RatingLimit="Open" EnforceRating="False" Description="Non-USFA" IsTeam="False" Fee="" FeeCurrency="" >
+			<PreReg CompetitorID="92691" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="34051" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="81733" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92866" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="79389" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="82126" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="72250" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="19931" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="60410" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="81391" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92917" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="23848" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="23849" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="33553" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="69056" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92694" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="21456" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92659" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="53814" EventFeePaid="" TournamentFeePaid="" />
+		</Event>
+		<Event EventID="83237" EventDateTime="2012-10-20 13:00:00" Weapon="Saber" Gender="Mixed" EnforceGender="False" AgeLimitMin="None" AgeLimitMax="None" EnforceAge="False" RatingLimit="Open" EnforceRating="False" Description="Non-USFA" IsTeam="False" Fee="" FeeCurrency="" >
+			<PreReg CompetitorID="76498" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92756" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="19931" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="72029" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="42097" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="88095" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92692" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92704" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="81597" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="53362" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="20929" EventFeePaid="" TournamentFeePaid="" />
+		</Event>
+		<Event EventID="83238" EventDateTime="2012-10-21 09:00:00" Weapon="Epee" Gender="Mixed" EnforceGender="False" AgeLimitMin="Senior" AgeLimitMax="Senior" EnforceAge="False" RatingLimit="Open" EnforceRating="False" Description="USFA" IsTeam="False" Fee="" FeeCurrency="" >
+			<PreReg CompetitorID="58542" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="68955" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="84181" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="29963" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92714" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="84186" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="23849" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="50878" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="85143" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="6971" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92942" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="69056" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="82480" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="80184" EventFeePaid="" TournamentFeePaid="" />
+		</Event>
+		<Event EventID="83239" EventDateTime="2012-10-21 11:00:00" Weapon="Foil" Gender="Mixed" EnforceGender="False" AgeLimitMin="Senior" AgeLimitMax="Senior" EnforceAge="False" RatingLimit="Open" EnforceRating="False" Description="USFA" IsTeam="False" Fee="" FeeCurrency="" >
+			<PreReg CompetitorID="56991" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92691" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="34051" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="81733" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="33723" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="60410" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="76180" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="44700" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="31627" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="81391" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="23848" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="23849" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="85143" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="33553" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="69056" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="6140" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="21456" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="53814" EventFeePaid="" TournamentFeePaid="" />
+		</Event>
+		<Event EventID="83240" EventDateTime="2012-10-21 13:00:00" Weapon="Saber" Gender="Mixed" EnforceGender="False" AgeLimitMin="Senior" AgeLimitMax="Senior" EnforceAge="False" RatingLimit="Open" EnforceRating="False" Description="USFA" IsTeam="False" Fee="" FeeCurrency="" >
+			<PreReg CompetitorID="76498" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="92756" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="42097" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="53362" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="6971" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="19703" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="6140" EventFeePaid="" TournamentFeePaid="" />
+			<PreReg CompetitorID="20929" EventFeePaid="" TournamentFeePaid="" />
+		</Event>
+	</Tournament>
+</FencingData>   

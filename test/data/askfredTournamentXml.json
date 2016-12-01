@@ -1,0 +1,390 @@
+{
+  "FencingData": {
+    "$": {
+      "Version": "4.0",
+      "Context": "PreReg",
+      "xmlns": "http://www.askfred.net",
+      "xmlns:ft": "http://www.fencingtime.com",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
+    },
+    "FencerDatabase": [
+      {
+        "Fencer": [
+          {
+            "$": {
+              "FencerID": "69056",
+              "FirstName": "Zeff",
+              "LastName": "Svoboda",
+              "ClubID1": "716",
+              "DivisionID": "35",
+              "BirthYear": "1987",
+              "Gender": "M"
+            },
+            "Membership": [
+              {
+                "_": "100131387",
+                "$": {
+                  "Org": "USFA"
+                }
+              }
+            ],
+            "Rating": [
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Foil"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Epee"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Saber"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "FencerID": "82126",
+              "FirstName": "Willa",
+              "LastName": "Gelvick",
+              "ClubID1": "716",
+              "DivisionID": "35",
+              "BirthYear": "1990",
+              "Gender": "F"
+            },
+            "Rating": [
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Foil"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Epee"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Saber"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "FencerID": "19931",
+              "FirstName": "Ryan",
+              "LastName": "Harris",
+              "ClubID1": "1",
+              "DivisionID": "69",
+              "BirthYear": "1975",
+              "Gender": "M"
+            },
+            "Rating": [
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Saber"
+                }
+              },
+              {
+                "_": "C2013",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Epee"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Foil"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "FencerID": "84181",
+              "FirstName": "Rachel",
+              "LastName": "Kainz",
+              "ClubID1": "1107",
+              "ClubID2": "6340",
+              "DivisionID": "35",
+              "BirthYear": "1997",
+              "Gender": "F"
+            },
+            "Membership": [
+              {
+                "_": "100139193",
+                "$": {
+                  "Org": "USFA"
+                }
+              }
+            ],
+            "Rating": [
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Epee"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Foil"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Saber"
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "FencerID": "31627",
+              "FirstName": "John",
+              "LastName": "Munson",
+              "ClubID1": "1",
+              "DivisionID": "69",
+              "BirthYear": "1993",
+              "Gender": "M"
+            },
+            "Membership": [
+              {
+                "_": "100101353",
+                "$": {
+                  "Org": "USFA"
+                }
+              }
+            ],
+            "Rating": [
+              {
+                "_": "E2016",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Foil"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Epee"
+                }
+              },
+              {
+                "_": "U",
+                "$": {
+                  "Org": "USFA",
+                  "Weapon": "Saber"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "ClubDatabase": [
+      {
+        "Club": [
+          {
+            "$": {
+              "ClubID": "1107",
+              "Name": "Roseville Area High School",
+              "DivisionID": "35",
+              "Abbreviation": "RAHS",
+              "City": "Roseville",
+              "State": "MN"
+            }
+          },
+          {
+            "$": {
+              "ClubID": "716",
+              "Name": "University of Minnesota Fencing Club",
+              "DivisionID": "35",
+              "Abbreviation": "UMFC",
+              "City": "Minneapolis",
+              "State": "MN"
+            }
+          },
+          {
+            "$": {
+              "ClubID": "6340",
+              "Name": "Remi's Academy of Defense",
+              "DivisionID": "35",
+              "Abbreviation": "R.A.D.",
+              "City": "",
+              "State": ""
+            }
+          },
+          {
+            "$": {
+              "ClubID": "1",
+              "Name": "Unattached (or Unknown)",
+              "DivisionID": "69",
+              "Abbreviation": "UNAT",
+              "City": "",
+              "State": ""
+            }
+          }
+        ]
+      }
+    ],
+    "Tournament": [
+      {
+        "$": {
+          "TournamentID": "20209",
+          "Name": "Gopher Open 2012",
+          "Location": "Beirman Gym",
+          "StartDate": "2012-10-20",
+          "EndDate": "2012-10-21",
+          "Org": "USFA",
+          "Fee": "0.00",
+          "FeeCurrency": ""
+        },
+        "Event": [
+          {
+            "$": {
+              "EventID": "83235",
+              "EventDateTime": "2012-10-20 09:00:00",
+              "Weapon": "Epee",
+              "Gender": "Mixed",
+              "EnforceGender": "False",
+              "AgeLimitMin": "None",
+              "AgeLimitMax": "None",
+              "EnforceAge": "False",
+              "RatingLimit": "Open",
+              "EnforceRating": "False",
+              "Description": "Epee Event",
+              "IsTeam": "False",
+              "Fee": "",
+              "FeeCurrency": ""
+            },
+            "PreReg": [
+              {
+                "$": {
+                  "CompetitorID": "82126",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              },
+              {
+                "$": {
+                  "CompetitorID": "19931",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              },
+              {
+                "$": {
+                  "CompetitorID": "84181",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              },
+              {
+                "$": {
+                  "CompetitorID": "69056",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "EventID": "83236",
+              "EventDateTime": "2012-10-20 11:00:00",
+              "Weapon": "Foil",
+              "Gender": "Mixed",
+              "EnforceGender": "False",
+              "AgeLimitMin": "None",
+              "AgeLimitMax": "None",
+              "EnforceAge": "False",
+              "RatingLimit": "Open",
+              "EnforceRating": "False",
+              "Description": "Foil Event",
+              "IsTeam": "False",
+              "Fee": "",
+              "FeeCurrency": ""
+            },
+            "PreReg": [
+              {
+                "$": {
+                  "CompetitorID": "82126",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              },
+              {
+                "$": {
+                  "CompetitorID": "19931",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              },
+              {
+                "$": {
+                  "CompetitorID": "69056",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              }
+            ]
+          },
+          {
+            "$": {
+              "EventID": "83237",
+              "EventDateTime": "2012-10-20 13:00:00",
+              "Weapon": "Saber",
+              "Gender": "Mixed",
+              "EnforceGender": "False",
+              "AgeLimitMin": "None",
+              "AgeLimitMax": "None",
+              "EnforceAge": "False",
+              "RatingLimit": "Open",
+              "EnforceRating": "False",
+              "Description": "Saber Event",
+              "IsTeam": "False",
+              "Fee": "",
+              "FeeCurrency": ""
+            },
+            "PreReg": [
+              {
+                "$": {
+                  "CompetitorID": "19931",
+                  "EventFeePaid": "",
+                  "TournamentFeePaid": ""
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

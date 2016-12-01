@@ -1,0 +1,8 @@
+{
+  "rules": {
+    // Re-enable dev dependencies check for production code.
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": false }],
+    // Koa ctx object requires property assignments in middleware.
+    "no-param-reassign": ["error", { "props": false }]
+  }
+}
