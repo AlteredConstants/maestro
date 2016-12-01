@@ -14,15 +14,15 @@ class Ratings extends EmbeddedDocument {
 export default class Fencer extends Document {
   askfredId = {
     type: String,
-    required: true,
-    unique: true,
+    // TODO: Needs 'sparse' also to allow NULL value.
+    // unique: true,
   };
   firstName = String;
   lastName = String;
   birthYear = Number;
   gender = {
     type: String,
-    choices: ['M', 'W'],
+    choices: ['M', 'W', undefined],
   }
   usfaId = String;
   rating = Ratings;

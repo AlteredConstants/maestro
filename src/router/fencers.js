@@ -40,10 +40,16 @@ router.get('/:id/events', async (ctx) => {
   ctx.body = events.map(e => e.toJSON());
 });
 
-router.post('/', (ctx) => {
-  // TODO: Implement.
-  // eslint-disable-next-line no-console
-  console.log(ctx.request.body);
+router.post('/', async (ctx) => {
+  const fencer = Fencer.create(ctx.request.body);
+  await fencer.save();
+  ctx.body = fencer.toJSON();
+});
+
+router.delete('/:id', async (ctx) => {
+  const { id } = ctx.params;
+  await Fencer.deleteOne({ _id: id });
+  ctx.status = 204;
 });
 
 export default router;
