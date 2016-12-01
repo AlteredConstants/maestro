@@ -1,23 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import is from 'check-types';
-import Event from 'models/event';
+import Event from 'model/Event';
 
-export default function Bracket({ event }) {
+function Bracket({ event }) {
   if (is.not.assigned(event) || !event.isRunning) return null;
+  const bouts = event.currentRound.bouts;
   return (
     <section>
       <h1>First Round</h1>
       <ul>
         {
-          event.currentRound.bouts.map(b => (
+          bouts.map(b => (
             <li key={`bout-${b.id}`}>
-              {b.rightFencer.name}
-              {' vs. '}
-              {b.leftFencer.name}
+              {`(${b.rightFencer.seed}) ${b.rightFencer.name} vs. (${b.leftFencer.seed}) ${b.leftFencer.name}`}
             </li>
           ))
-          // React still doesn't like Immutable's Maps.
-          .toArray()
         }
       </ul>
     </section>
@@ -27,3 +25,9 @@ export default function Bracket({ event }) {
 Bracket.propTypes = {
   event: React.PropTypes.instanceOf(Event),
 };
+
+export default connect(
+  state => ({
+    event: state.sampleEvent,
+  }),
+)(Bracket);

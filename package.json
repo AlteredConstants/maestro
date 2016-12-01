@@ -1,6 +1,6 @@
 {
   "name": "maestro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node server.js",
@@ -17,7 +17,8 @@
     "react-hot-loader": "^3.0.0-beta.2",
     "react-redux": "^4.4.6",
     "react-router": "^4.0.0-alpha.6",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-promise-middleware": "^4.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
@@ -35,6 +36,7 @@
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-lodash-fp": "^2.1.3",
     "eslint-plugin-react": "^6.7.1",
     "isomorphic-fetch": "^2.2.1",
     "node-static": "^0.7.6",
@@ -42,10 +44,5 @@
     "webpack": "^2.1.0-beta.27",
     "webpack-dev-server": "^2.1.0-beta.12",
     "webpack-merge": "^1.0.1"
-  },
-  "optionalDependencies": {
-    "get-parameter-names": "^0.3.0",
-    "immutable": "^3.8.1",
-    "reflux": "^5.0.3"
   }
 }

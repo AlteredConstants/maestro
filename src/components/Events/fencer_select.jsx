@@ -1,15 +1,15 @@
 import React from 'react';
-import EventActions from 'actions/event_actions';
-import Event from 'models/event';
-import Fencer from 'models/fencer';
+import { connect } from 'react-redux';
+import {
+  createAddEventCompetitorAction,
+  createRemoveEventCompetitorAction,
+} from 'action';
+import Event from 'model/Event';
+import Fencer from 'model/Fencer';
 
-function toggleFencerInEvent(fencer, e) {
-  if (e.target.checked) EventActions.addFencer(fencer);
-  else EventActions.removeFencer(fencer);
-}
-
-export default function FencerSelect({ event, fencer }) {
+function FencerSelect({ event, fencer, addCompetitor, removeCompetitor }) {
   const id = `fencer-${fencer.id}-checkbox`;
+  const changeCompetitor = isAdd => (isAdd ? addCompetitor : removeCompetitor)();
   return (
     <label htmlFor={id}>
       <input
@@ -17,7 +17,7 @@ export default function FencerSelect({ event, fencer }) {
         type="checkbox"
         checked={event.fencers.some(f => f.id === fencer.id)}
         disabled={event.isRunning}
-        onChange={e => toggleFencerInEvent(fencer, e)}
+        onChange={e => changeCompetitor(e.target.checked)}
       />
       {fencer.name}
     </label>
@@ -25,6 +25,20 @@ export default function FencerSelect({ event, fencer }) {
 }
 
 FencerSelect.propTypes = {
-  event: React.PropTypes.instanceOf(Event),
-  fencer: React.PropTypes.instanceOf(Fencer),
+  event: React.PropTypes.instanceOf(Event).isRequired,
+  fencer: React.PropTypes.instanceOf(Fencer).isRequired,
+  addCompetitor: React.PropTypes.func.isRequired,
+  removeCompetitor: React.PropTypes.func.isRequired,
 };
+
+export default connect(
+  null,
+  (dispatcher, props) => ({
+    addCompetitor: () => dispatcher(
+      createAddEventCompetitorAction(props.event, props.fencer),
+    ),
+    removeCompetitor: () => dispatcher(
+      createRemoveEventCompetitorAction(props.event, props.fencer),
+    ),
+  }),
+)(FencerSelect);

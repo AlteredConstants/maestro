@@ -1,15 +1,13 @@
+import { compose } from 'lodash/fp';
 import React from 'react';
-import FencerActions from 'actions/fencer_actions';
-import Fencer from 'models/fencer';
+import { connect } from 'react-redux';
+import { deleteFencer } from 'action';
+import Fencer from 'model/Fencer';
 
-function removeFencer(id) {
-  FencerActions.remove(id);
-}
-
-export default function FencerControl({ fencer }) {
+function FencerControl({ fencer, remove }) {
   return (
     <span>
-      <button onClick={() => removeFencer(fencer.id)}>
+      <button onClick={() => remove(fencer)}>
         Remove
       </button>
       {` ${fencer.name}`}
@@ -19,4 +17,12 @@ export default function FencerControl({ fencer }) {
 
 FencerControl.propTypes = {
   fencer: React.PropTypes.instanceOf(Fencer),
+  remove: React.PropTypes.func,
 };
+
+export default connect(
+  null,
+  dispatcher => ({
+    remove: compose(dispatcher, deleteFencer),
+  }),
+)(FencerControl);

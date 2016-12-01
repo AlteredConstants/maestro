@@ -1,59 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Match } from 'react-router';
-import Reflux from 'reflux';
+import { createStartEventAction, createStopEventAction } from 'action';
+import Event from 'model/Event';
 import Fencers from 'components/Events/fencers';
 import Bracket from 'components/Events/bracket';
-import EventActions from 'actions/event_actions';
-import EventStore from 'stores/event_store';
-import is from 'check-types';
-import FencerStateMixin from '../mixins/fencer_state';
 
-export default React.createClass({
-  propTypes: {
-    pathname: React.PropTypes.string,
-  },
+function Events({ pathname, event, startEvent, stopEvent }) {
+  return (
+    <section>
+      <h1>
+        {'Events '}
+        {
+          event && !event.isRunning
+            && <button onClick={() => startEvent(event)}>Start</button>
+        }
+        {
+          event && event.isRunning
+            && <button onClick={() => stopEvent(event)}>Stop</button>
+        }
+      </h1>
+      <Match exactly pattern={`${pathname}`} component={Fencers} />
+      <Match pattern={`${pathname}/bracket`} component={Bracket} />
+    </section>
+  );
+}
 
-  mixins: [FencerStateMixin, Reflux.connect(EventStore, 'event')],
+Events.propTypes = {
+  pathname: React.PropTypes.string.isRequired,
+  event: React.PropTypes.instanceOf(Event),
+  startEvent: React.PropTypes.func.isRequired,
+  stopEvent: React.PropTypes.func.isRequired,
+};
 
-  getInitialState() {
-    return { event: null };
-  },
-
-  componentDidMount() {
-    this.setState({ event: EventStore.get() });
-  },
-
-  toggleEventStatus() {
-    if (this.state.event.isRunning) EventActions.stop();
-    else EventActions.start();
-  },
-
-  render() {
-    const event = this.state.event;
-    const fencers = this.state.fencers && this.state.fencers.toArray();
-    let buttonText = 'Loading...';
-    if (is.assigned(event)) buttonText = event.isRunning ? 'Stop' : 'Start';
-    return (
-      <section>
-        <h1>
-          {'Events '}
-          <button
-            onClick={this.toggleEventStatus}
-            disabled={is.not.assigned(event)}
-          >
-            {buttonText}
-          </button>
-        </h1>
-        <Match
-          exactly
-          pattern={`${this.props.pathname}`}
-          render={() => <Fencers event={event} fencers={fencers} />}
-        />
-        <Match
-          pattern={`${this.props.pathname}/bracket`}
-          render={() => <Bracket event={event} />}
-        />
-      </section>
-    );
-  },
-});
+export default connect(
+  state => ({
+    event: state.sampleEvent,
+  }),
+  dispatcher => ({
+    startEvent: event => dispatcher(createStartEventAction(event)),
+    stopEvent: event => dispatcher(createStopEventAction(event)),
+  }),
+)(Events);

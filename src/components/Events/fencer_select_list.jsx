@@ -1,10 +1,12 @@
-import React from 'react';
 import is from 'check-types';
-import Event from 'models/event';
-import Fencer from 'models/fencer';
+import { map } from 'lodash/fp';
+import React from 'react';
+import { connect } from 'react-redux';
+import Event from 'model/Event';
+import Fencer from 'model/Fencer';
 import FencerSelect from './fencer_select';
 
-export default function FencerSelectList({ event, fencers }) {
+function FencerSelectList({ event, fencers }) {
   if (is.not.assigned(fencers) || is.not.assigned(event)) {
     // TODO: Should probably have a spinner or such.
     return null;
@@ -13,11 +15,11 @@ export default function FencerSelectList({ event, fencers }) {
   return (
     <ul>
       {
-        fencers.map(fencer => (
+        map(fencer => (
           <li key={`fencer-${fencer.id}`}>
             <FencerSelect event={event} fencer={fencer} />
           </li>
-        ))
+        ), fencers)
       }
     </ul>
   );
@@ -25,5 +27,12 @@ export default function FencerSelectList({ event, fencers }) {
 
 FencerSelectList.propTypes = {
   event: React.PropTypes.instanceOf(Event),
-  fencers: React.PropTypes.arrayOf(React.PropTypes.instanceOf(Fencer)),
+  fencers: React.PropTypes.objectOf(React.PropTypes.instanceOf(Fencer)),
 };
+
+export default connect(
+  state => ({
+    event: state.sampleEvent,
+    fencers: state.fencers,
+  }),
+)(FencerSelectList);
