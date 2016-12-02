@@ -1,28 +1,23 @@
 {
-  "jspm": {
-    "directories": {
-      "lib": ".",
-      "packages": "jspm_packages"
-    },
-    "dependencies": {
-      "check-types": "npm:check-types@^2.2.0",
-      "get-parameter-names": "npm:get-parameter-names@^0.2.0",
-      "immutable": "npm:immutable@^3.6.2",
-      "jsx": "github:floatdrop/plugin-jsx@^0.1.1",
-      "react": "npm:react@^0.12.2",
-      "react-router": "npm:react-router@^0.12.0",
-      "reflux": "npm:reflux@^0.2.5"
-    }
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
   "name": "maestro",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "author": "Zeff Svoboda",
+  "license": "ISC",
+  "description": "Fencing tournament management suite.",
   "private": true,
-  "dependencies": {},
+  "scripts": {
+    "in": "node tool/npm-in.js",
+    "client": "node tool/npm-in.js client",
+    "c": "node tool/npm-in.js client",
+    "server": "node tool/npm-in.js server",
+    "s": "node tool/npm-in.js server",
+    "cs": "node tool/npm-in.js client,server",
+    "postinstall": "npm run cs install",
+    "serve": "concurrently \"npm run server serve\" \"npm run client serve\" --kill-others --prefix \"[{name}]\" --names \"SERVER,CLIENT\""
+  },
   "devDependencies": {
-    "node-static": "^0.7.6",
-    "spdy": "^1.30.1"
+    "concurrently": "^3.1.0",
+    "global-npm": "^0.3.0",
+    "opn-cli": "^3.1.0"
   }
 }
