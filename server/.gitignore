@@ -1,4 +1,2 @@
-/node_modules
-/lib
-/.vscode
-/.temp
+/lib/
+/.temp/

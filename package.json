@@ -1,0 +1,23 @@
+{
+  "name": "maestro",
+  "version": "0.0.2",
+  "author": "Zeff Svoboda",
+  "license": "ISC",
+  "description": "Fencing tournament management suite.",
+  "private": true,
+  "scripts": {
+    "in": "node tool/npm-in.js",
+    "client": "node tool/npm-in.js client",
+    "c": "node tool/npm-in.js client",
+    "server": "node tool/npm-in.js server",
+    "s": "node tool/npm-in.js server",
+    "cs": "node tool/npm-in.js client,server",
+    "postinstall": "npm run cs install",
+    "serve": "concurrently \"npm run server serve\" \"npm run client serve\" --kill-others --prefix \"[{name}]\" --names \"SERVER,CLIENT\""
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "global-npm": "^0.3.0",
+    "opn-cli": "^3.1.0"
+  }
+}

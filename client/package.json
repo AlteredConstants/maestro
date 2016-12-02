@@ -1,13 +1,17 @@
 {
-  "name": "maestro",
+  "name": "maestro-client",
   "version": "0.0.2",
   "private": true,
+  "author": "Zeff Svoboda",
+  "license": "ISC",
+  "description": "Client frontend for Maestro fencing tournament management suite.",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint --ext js --ext jsx .",
     "build": "webpack",
     "watch": "webpack --watch",
-    "serve": "webpack-dev-server --hot"
+    "serve": "webpack-dev-server --hot",
+    "open": "opn http://localhost:8080 --"
   },
   "dependencies": {
     "check-types": "^7.0.1",

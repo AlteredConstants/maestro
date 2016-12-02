@@ -1,20 +1,4 @@
 {
-  "root": true,
-  "env": { "node": true },
-  "parser": "babel-eslint",
-  "extends": [
-    "airbnb",
-    "plugin:lodash-fp/recommended"
-  ],
-  "plugins": [
-    "react",
-    "import",
-    "lodash-fp"
-  ],
-  "rules": {
-    // devDependencies reenabled in src config.
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
-  },
   "settings": {
     "import/resolver": "babel-module"
   }

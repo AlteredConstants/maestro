@@ -1,9 +1,25 @@
 {
   "name": "maestro-server",
   "version": "0.0.1",
+  "author": "Zeff Svoboda",
+  "license": "ISC",
   "description": "Server backend for Maestro fencing tournament management suite.",
   "private": true,
   "main": "lib/entry.js",
+  "scripts": {
+    "start": "node .",
+    "serve": "concurrently \"npm run watch\" \"npm run nodemon:delay\" --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE\"",
+    "build": "rimraf lib && babel src --out-dir lib --source-maps",
+    "watch": "npm run build -- --watch",
+    "nodemon": "nodemon --watch lib --debug=5858 lib/entry.js",
+    "nodemon:delay": "wait-on lib/entry.js --delay 700 && npm run nodemon",
+    "lint": "eslint .",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha --",
+    "test:watch": "npm run test -- --watch",
+    "pretest:report": "npm run test -- --reporter mochawesome --reporter-options reportDir=.temp/test-report || exit 0",
+    "test:report": "opn .temp/coverage/lcov-report/index.html && opn .temp/test-report/mochawesome.html",
+    "verify": "npm run lint && npm run test -- --reporter mocha-silent-reporter"
+  },
   "dependencies": {
     "bluebird": "^3.4.6",
     "camo": "^0.12.3",
@@ -50,21 +66,5 @@
     "testdouble": "^1.9.0",
     "testdouble-chai": "^0.4.0",
     "wait-on": "^2.0.1"
-  },
-  "scripts": {
-    "start": "node .",
-    "start:dev": "concurrently \"npm run watch\" \"npm run serve:delay\" --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE\"",
-    "build": "rimraf lib && babel src --out-dir lib --source-maps",
-    "watch": "npm run build -- --watch",
-    "serve": "nodemon --watch lib --debug=5858 lib/entry.js",
-    "serve:delay": "wait-on lib/entry.js --delay 700 && npm run serve",
-    "lint": "eslint .",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha --",
-    "test:watch": "npm run test -- --watch",
-    "pretest:report": "npm run test -- --reporter mochawesome --reporter-options reportDir=.temp/test-report || exit 0",
-    "test:report": "opn .temp/coverage/lcov-report/index.html && opn .temp/test-report/mochawesome.html",
-    "verify": "npm run lint && npm run test -- --reporter mocha-silent-reporter"
-  },
-  "author": "Zeff Svoboda",
-  "license": "ISC"
+  }
 }
